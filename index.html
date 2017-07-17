@@ -1,0 +1,557 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>Not the game of life</title>
+  <script src="jspostcode.js"></script>
+  <script src="d3.js"></script>
+  <style>
+    body {
+      font-family: helvetica, arial;
+    }
+
+    #UniversityChoice {
+      display: none;
+    }
+  </style>
+</head>
+
+<body>
+  <div id='Start'>
+  <p>Welcome to start of life, you are a
+    <select name="Gender" id="Gender">
+    <option value="Female">Female</option>
+    <option value="Male">Male</option>
+  </select> , who is living in <input type="text" id="postcode" maxlength="13" alt="Enter Postcode">
+    <button name="Start" type="button" onclick="testPostCode();">Start life.</button>
+    </div>
+
+    <div id='AgeNow'>
+    </div>
+    <div id='EducationAlert'>
+    </div>
+    <div id='Education'>
+    </div>
+    <div id='Education2'>
+    </div>
+    <div id='Education3'>
+    </div>
+    <div id='Education4'>
+    </div>
+
+    <div id='UniversityChoice'>
+      <p>Would you like to apply to university?
+        <select name="ApplyUni" id="ApplyUni">
+    <option value="Blank"></option>
+    <option value="Yes">Yes</option>
+    <option value="No">No</option>
+    </select>
+        <button name="Continue" type="button" onclick="StartUniversity();">Continue</button>
+      </p>
+    </div>
+
+  </p>
+  <script>
+    var xhr = new XMLHttpRequest();
+    var newPostcode = '';
+    var LSOA = '';
+    var LA = '';
+    var Gender = '';
+    var IMD = '';
+    var FinalAgeDeath = '';
+    var EducationLevel = 0;
+    var GCSEPass = '';
+    var UniPoints = 0
+
+    var ageRange = '';
+    var CauseOfDeath = '';
+    var LevelTwoChance = '';
+
+    //TypesDeath
+    var Neoplasms = '';
+    var Respiratory = '';
+    var Diabetes = '';
+    var HeartDisease = '';
+    var Stroke = '';
+    var OtherCirculatory = '';
+    var IntentionalInjuries = '';
+    var UnintentionalInjuries = '';
+    var OtherCauses = '';
+    var Neonatal = '';
+
+    var doughnut = 12;
+
+    // Function tests postcode is valid and creates the newPostcode and stores the Gender variables
+    function testPostCode() {
+      var newPostCode = checkPostCode(document.getElementById('postcode').value);
+      if (newPostCode) {
+        document.getElementById('postcode').value = newPostCode;
+        console.log(newPostCode);
+        Gender = document.getElementById('Gender').value;
+        PostcodeSearch();
+      } else alert("Postcode must be 6 Characters Long");
+    }
+
+    //Searching for postcode on API to get LA and LSOA
+    var PostcodeSearch = function() {
+      var newPostCode = checkPostCode(document.getElementById('postcode').value);
+      newPostCode = newPostCode.replace(/\s+/g, '');
+      var url = 'https://api.postcodes.io/postcodes/' + newPostCode;
+      console.log(url)
+      xhr.open("GET", url);
+      xhr.addEventListener('load', processResponse);
+      xhr.send();
+    };
+
+    //Process API response and store LA and LSOA data.
+    var processResponse = function() {
+      var data = JSON.parse(this.response);
+      console.log(data);
+      LSOA = data.result.lsoa;
+      console.log(LSOA);
+      LA = data.result.admin_county;
+      if (LA === null) {
+        LA = data.result.admin_district;
+      }
+      console.log(LA);
+      getIMD();
+    };
+
+    var getIMD = function() {
+      console.log('I am checking:');
+      console.log('Local Authority: ' + LA);
+      console.log('Gender: ' + Gender);
+
+      //Finds the economic depravation based on the LSOA
+      d3.csv("IMDbyLSOA.csv", function(IMDData) {
+        //console.log("IMDData: ", IMDData);
+        // If LSOA in .csv matches the LSOA variable then get its IMd
+        IMD = IMDData.filter(function(d) {
+          return d.LSOA === LSOA
+        })[0].IMD;
+        console.log('IMD: ' + IMD);
+        agedeath();
+      });
+    };
+
+    //Random Number Range
+    var randomFromTo = function(from, to) {
+      return Math.floor(Math.random() * (to - from + 1) + from);
+    }
+
+    //Finds the appropriate number for gender and IMD at each age range
+    var agedeath = function() {
+      d3.csv("AgeDeath.csv", function(AgeDeathData) {
+        var Help2 = (IMD + Gender);
+        console.log(Help2);
+        var lessThan1 = AgeDeathData.filter(function(d) {
+          return d.Helper === Help2
+        })[0].lessThan1;
+        var OneToFour = AgeDeathData.filter(function(d) {
+          return d.Helper === Help2
+        })[0].OneToFour;
+        var FiveToNine = AgeDeathData.filter(function(d) {
+          return d.Helper === Help2
+        })[0].FiveToNine;
+        var TenToFourteen = AgeDeathData.filter(function(d) {
+          return d.Helper === Help2
+        })[0].TenToFourteen;
+        var FifteenToNineteen = AgeDeathData.filter(function(d) {
+          return d.Helper === Help2
+        })[0].FifteenToNineteen;
+        var TwentyToTwentyfour = AgeDeathData.filter(function(d) {
+          return d.Helper === Help2
+        })[0].TwentyToTwentyfour;
+        var TwentyfiveToTwentyNine = AgeDeathData.filter(function(d) {
+          return d.Helper === Help2
+        })[0].TwentyfiveToTwentyNine;
+        var ThirtyToThirtyfour = AgeDeathData.filter(function(d) {
+          return d.Helper === Help2
+        })[0].ThirtyToThirtyfour;
+        var ThirtyfiveToThirtynine = AgeDeathData.filter(function(d) {
+          return d.Helper === Help2
+        })[0].ThirtyfiveToThirtynine;
+        var FourtyToFourtyfour = AgeDeathData.filter(function(d) {
+          return d.Helper === Help2
+        })[0].FourtyToFourtyfour;
+        var FourtyfiveToFourtynine = AgeDeathData.filter(function(d) {
+          return d.Helper === Help2
+        })[0].FourtyfiveToFourtynine;
+        var FiftyToFiftyfour = AgeDeathData.filter(function(d) {
+          return d.Helper === Help2
+        })[0].FiftyToFiftyfour;
+        var FiftyfiveToFiftyNine = AgeDeathData.filter(function(d) {
+          return d.Helper === Help2
+        })[0].FiftyfiveToFiftyNine;
+        var SixtyToSixtyfour = AgeDeathData.filter(function(d) {
+          return d.Helper === Help2
+        })[0].SixtyToSixtyfour;
+        var SixtyfiveToSixtynine = AgeDeathData.filter(function(d) {
+          return d.Helper === Help2
+        })[0].SixtyfiveToSixtynine;
+        var SeventyToSeventyfour = AgeDeathData.filter(function(d) {
+          return d.Helper === Help2
+        })[0].SeventyToSeventyfour;
+        var SeventyfiveToSeventynine = AgeDeathData.filter(function(d) {
+          return d.Helper === Help2
+        })[0].SeventyfiveToSeventynine;
+        var EightyToEightyfour = AgeDeathData.filter(function(d) {
+          return d.Helper === Help2
+        })[0].EightyToEightyfour;
+        var EightyfiveToEightynine = AgeDeathData.filter(function(d) {
+          return d.Helper === Help2
+        })[0].EightyfiveToEightynine;
+        var Ninety = AgeDeathData.filter(function(d) {
+          return d.Helper === Help2
+        })[0].Ninety;
+
+        //From the numbers decides which range the person will die in.
+        //Also chooses a random from within that age as the cause.
+
+        var chance = Math.floor((Math.random() * 100) + 1);
+        if (chance <= lessThan1) {
+          console.log('lessThan1');
+          FinalAgeDeath = 'less than 1';
+          console.log(FinalAgeDeath);
+          ageRange = 'lessThan1';
+        } else if (chance <= OneToFour) {
+          console.log('OneToFour');
+          FinalAgeDeath = randomFromTo(1, 4);
+          console.log(FinalAgeDeath);
+          ageRange = 'OneToFour';
+        } else if (chance <= FiveToNine) {
+          console.log('FiveToNine')
+          FinalAgeDeath = randomFromTo(5, 9);
+          console.log(FinalAgeDeath);
+          ageRange = 'FiveToNine';
+        } else if (chance <= TenToFourteen) {
+          console.log('TenToFourteen')
+          FinalAgeDeath = randomFromTo(10, 14);
+          console.log(FinalAgeDeath);
+          ageRange = 'TenToFourteen';
+        } else if (chance <= FifteenToNineteen) {
+          console.log('FifteenToNineteen')
+          FinalAgeDeath = randomFromTo(15, 19);
+          console.log(FinalAgeDeath);
+          ageRange = 'FifteenToNineteen';
+        } else if (chance <= TwentyToTwentyfour) {
+          console.log('TwentyToTwentyfour')
+          FinalAgeDeath = randomFromTo(20, 24);
+          console.log(FinalAgeDeath);
+          ageRange = 'TwentyToTwentyfour';
+        } else if (chance <= TwentyfiveToTwentyNine) {
+          console.log('TwentyfiveToTwentyNine')
+          FinalAgeDeath = randomFromTo(25, 29);
+          console.log(FinalAgeDeath);
+          ageRange = 'TwentyfiveToTwentyNine';
+        } else if (chance <= ThirtyToThirtyfour) {
+          console.log('ThirtyToThirtyfour')
+          FinalAgeDeath = randomFromTo(30, 34);
+          console.log(FinalAgeDeath);
+          ageRange = 'ThirtyToThirtyfour';
+        } else if (chance <= ThirtyfiveToThirtynine) {
+          console.log('ThirtyfiveToThirtynine')
+          FinalAgeDeath = randomFromTo(35, 39);
+          console.log(FinalAgeDeath);
+          ageRange = 'ThirtyfiveToThirtynine';
+        } else if (chance <= FourtyToFourtyfour) {
+          console.log('FourtyToFourtyfour')
+          FinalAgeDeath = randomFromTo(40, 44);
+          console.log(FinalAgeDeath);
+          ageRange = 'FourtyToFourtyfour';
+        } else if (chance <= FourtyfiveToFourtynine) {
+          console.log('FourtyfiveToFourtynine')
+          FinalAgeDeath = randomFromTo(45, 49);
+          console.log(FinalAgeDeath);
+          ageRange = 'FourtyfiveToFourtynine';
+        } else if (chance <= FiftyToFiftyfour) {
+          console.log('FiftyToFiftyfour')
+          FinalAgeDeath = randomFromTo(50, 54);
+          console.log(FinalAgeDeath);
+          ageRange = 'FiftyToFiftyfour';
+        } else if (chance <= FiftyfiveToFiftyNine) {
+          console.log('FiftyfiveToFiftyNine')
+          FinalAgeDeath = randomFromTo(55, 59);
+          console.log(FinalAgeDeath);
+          ageRange = 'FiftyfiveToFiftyNine';
+        } else if (chance <= SixtyToSixtyfour) {
+          console.log('SixtyToSixtyfour')
+          FinalAgeDeath = randomFromTo(60, 64);
+          console.log(FinalAgeDeath);
+          ageRange = 'SixtyToSixtyfour';
+        } else if (chance <= SixtyfiveToSixtynine) {
+          console.log('SixtyfiveToSixtynine')
+          FinalAgeDeath = randomFromTo(65, 69);
+          console.log(FinalAgeDeath);
+          ageRange = 'SixtyfiveToSixtynine';
+        } else if (chance <= SeventyToSeventyfour) {
+          console.log('SeventyToSeventyfour')
+          FinalAgeDeath = randomFromTo(70, 74);
+          console.log(FinalAgeDeath);
+          ageRange = 'SeventyToSeventyfour';
+        } else if (chance <= SeventyfiveToSeventynine) {
+          console.log('SeventyfiveToSeventynine')
+          FinalAgeDeath = randomFromTo(75, 79);
+          console.log(FinalAgeDeath);
+          ageRange = 'SeventyfiveToSeventynine';
+        } else if (chance <= EightyToEightyfour) {
+          console.log('EightyToEightyfour')
+          FinalAgeDeath = randomFromTo(80, 84);
+          console.log(FinalAgeDeath);
+          ageRange = 'EightyToEightyfour';
+        } else if (chance <= EightyfiveToEightynine) {
+          console.log('EightyfiveToEightynine')
+          FinalAgeDeath = randomFromTo(85, 89);
+          console.log(FinalAgeDeath);
+          ageRange = 'EightyfiveToEightynine';
+        } else {
+          console.log('Ninety')
+          FinalAgeDeath = randomFromTo(90, 100);
+          console.log(FinalAgeDeath);
+          ageRange = 'Ninety';
+        };
+        CauseDeath();
+      });
+    };
+    //Based on help (gender and IMD) and age of death find chance for each death
+    var CauseDeath = function() {
+      d3.csv("CauseDeath2.csv", function(CauseDeathData) {
+        var Help2 = (IMD + Gender);
+        console.log(Help2);
+        console.log(ageRange);
+        var filteredData = CauseDeathData.filter(function(d) {
+          if ((d['Age'] === ageRange) && (d['Help'] === Help2)) {
+            return d;
+          };
+        });
+        console.log(filteredData);
+        Neoplasms = filteredData[0]['01 Neoplasms'];
+        Respiratory = filteredData[0]['02 Diseases of the respiratory system'];
+        Diabetes = filteredData[0]['03 Diabetes'];
+        HeartDisease = filteredData[0]['04 Ischaemic heart disease'];
+        Stroke = filteredData[0]['05 Stroke (cerebrovascular)'];
+        OtherCirculatory = filteredData[0]['06 Other circulatory'];
+        IntentionalInjuries = filteredData[0]['07 Intentional injuries'];
+        UnintentionalInjuries = filteredData[0]['08 Unintentional injuries'];
+        OtherCauses = filteredData[0]['09 All other causes'];
+        Neonatal = filteredData[0]['10 Neonatal'];
+
+        Neoplasms = Number(Neoplasms);
+        Respiratory = Number(Respiratory);
+        Diabetes = Number(Diabetes);
+        HeartDisease = Number(HeartDisease);
+        Stroke = Number(Stroke);
+        OtherCirculatory = Number(OtherCirculatory);
+        IntentionalInjuries = Number(IntentionalInjuries);
+        UnintentionalInjuries = Number(UnintentionalInjuries);
+        OtherCauses = Number(OtherCauses);
+        Neonatal = Number(Neonatal);
+        CauseDeathChance();
+      });
+    };
+
+    //Find the chance of you dying from different causes.
+    var CauseDeathChance = function() {
+      var chance = Math.floor((Math.random() * 100) + 1);
+      console.log(chance);
+      if (chance <= Neoplasms) {
+        console.log('You were ' + FinalAgeDeath + ' years old when you died from ' + 'Neoplasms');
+        CauseOfDeath = 'neoplasms';
+      } else if (chance <= Respiratory) {
+        console.log('You were ' + FinalAgeDeath + ' years old when you died from ' + 'Respiratory');
+        CauseOfDeath = 'respiratory';
+      } else if (chance <= Diabetes) {
+        console.log('You were ' + FinalAgeDeath + ' years old when you died from ' + 'Diabetes');
+        CauseOfDeath = 'diabetes';
+      } else if (chance <= HeartDisease) {
+        console.log('You were ' + FinalAgeDeath + ' years old when you died from ' + 'HeartDisease');
+        CauseOfDeath = 'heart disease';
+      } else if (chance <= Stroke) {
+        console.log('You were ' + FinalAgeDeath + ' years old when you died from ' + 'Stroke');
+        CauseOfDeath = 'stroke';
+      } else if (chance <= OtherCirculatory) {
+        console.log('You were ' + FinalAgeDeath + ' years old when you died from ' + 'OtherCirculatory');
+        CauseOfDeath = 'other circulatory';
+      } else if (chance <= IntentionalInjuries) {
+        console.log('You were ' + FinalAgeDeath + ' years old when you died from ' + 'IntentionalInjuries');
+        CauseOfDeath = 'intentional injuries';
+      } else if (chance <= UnintentionalInjuries) {
+        console.log('You were ' + FinalAgeDeath + ' years old when you died from ' + 'UnintentionalInjuries');
+        CauseOfDeath = 'unintentional injuries';
+      } else if (chance <= OtherCauses) {
+        console.log('You were ' + FinalAgeDeath + ' years old when you died from ' + 'Other');
+        CauseOfDeath = 'other causes';
+      } else if (chance <= Neonatal) {
+        console.log('You were ' + FinalAgeDeath + 'years old when you died from ' + 'Neonatal');
+        CauseOfDeath = 'neonatal';
+      } else {
+        console.log('Abort');
+      };
+      add();
+    };
+
+    //Start timer of life which ends when dead.
+    //If you reach death age the timer will stop, when you are 16 it'll pause for education.
+    var add = function() {
+      document.getElementById("Start").style.display = "none"
+      window.setInterval(
+        function() {
+          if (doughnut == FinalAgeDeath) {
+            document.getElementById("AgeNow").innerHTML = "You died at " + doughnut + " years old from " + CauseOfDeath + '.';
+          }
+          //Stop timer at 16 to find out what happens at KS4.
+          else if (doughnut == 16) {
+            document.getElementById("EducationAlert").innerHTML = "You are " + doughnut + " years old, time to get your GCSE results.";
+            KS4();
+          }
+          //Stop timer at 18 to give job and university options depending on grades and GCSE.
+          else if (doughnut == 18 && GCSEPass == true) {
+            document.getElementById("UniversityChoice").style.display = "block";
+            //doughnut = doughnut + 1;
+          } else if (doughnut == 18 && GCSEPass == false) {
+            document.getElementById("EducationAlert").innerHTML = "As you didn't get the grades for university, it is time to look for a job.";
+            //doughnut = doughnut + 1;
+            Work();
+          } else {
+            doughnut = doughnut + 1;
+            document.getElementById("AgeNow").innerHTML = "You are a " + doughnut + " year old " + Gender + " who was born in " + LA;
+          }
+        }, 500);
+    };
+
+    function myFunction() {
+      document.getElementById("CurrentAge").innerHTML = add();
+    };
+
+    //Looks at data to see if 5+ GCSEs were obtained.
+    var KS4 = function() {
+      d3.csv("LevelTwo.csv", function(LevelTwoData) {
+        var filteredData = LevelTwoData.filter(function(d) {
+          if (d['LA'] === LA) {
+            return d;
+          };
+        });
+        var chance = Math.floor((Math.random() * 100) + 1);
+        LevelTwoChance = filteredData[0]['LevelTwo'];
+        if (LevelTwoChance >= chance) {
+          document.getElementById("Education").innerHTML = "You did well in your GCSEs. In your area " + LevelTwoChance + "% got 5 GCSEs between A* and C.";
+          EducationLevel = EducationLevel + 1;
+          console.log('Education Level: ' + EducationLevel);
+          GCSEPass = true;
+        } else {
+          document.getElementById("Education").innerHTML = "You didn't do so well in your GCSEs. In your area " + LevelTwoChance + "% got 5 GCSEs between A* and C.";
+          GCSEPass = false;
+        };
+        KS4Destination();
+        console.log(filteredData);
+      });
+    };
+
+    //Looks at data to see where they will go after GCSEs
+    var KS4Destination = function() {
+      d3.csv("KS4Destination.csv", function(KS4DestinationData) {
+        var filteredData = KS4DestinationData.filter(function(d) {
+          if (d['LA'] === LA) {
+            return d;
+          };
+        });
+        var chance = Math.floor((Math.random() * 100) + 1);
+
+        var FurtherEducation = filteredData[0]['FurtherEducation'];
+        var EmploymentOrTraining = filteredData[0]['EmploymentOrTraining'];
+        var NotInEducationOrWork = filteredData[0]['NotInEducationOrWork'];
+
+        if ((EmploymentOrTraining >= chance) && (GCSEPass == false)) {
+          document.getElementById("Education2").innerHTML = "You go into vocational training / employment after completeing your GCSEs. " + "In your area " + FurtherEducation + "% of KS4 leavers decided to stay on in education, while " +
+            EmploymentOrTraining + "% went into employment or training and " + NotInEducationOrWork + "% reported not being in education or work 6 months after their GCSEs.";
+          doughnut = doughnut + 1;
+        } else if ((NotInEducationOrWork >= chance) && (GCSEPass == false)) {
+          document.getElementById("Education2").innerHTML = "You are not in education or work 6 months after finishing your GCSEs. " + "In your area " + FurtherEducation + "% of KS4 leavers decided to stay on in education, while " +
+            EmploymentOrTraining + "% went into employment or training and " + NotInEducationOrWork + "% reported not being in education or work 6 months after their GCSEs.";
+          doughnut = doughnut + 1;
+        } else {
+          document.getElementById("Education2").innerHTML = "You decide to carry on in education. " + "In your area " + FurtherEducation + "% of KS4 leavers decided to stay on in education, while " +
+            EmploymentOrTraining + "% went into employment or training and " + NotInEducationOrWork + "% reported not being in education or work 6 months after their GCSEs.";
+          doughnut = doughnut + 1;
+        };
+      });
+    };
+
+    var StartUniversity = function() {
+      if (document.getElementById('ApplyUni').value == 'Yes') {
+
+        document.getElementById("UniversityChoice").style.display = "none";
+        //doughnut = doughnut + 1;
+        GoUniversity();
+      } else if (document.getElementById('ApplyUni').value == 'No') {
+        document.getElementById("UniversityChoice").style.display = "none";
+        doughnut = doughnut + 1;
+        Work();
+    }
+    else {
+      alert('Choose whether to apply to university');
+    };
+    };
+
+    var Work = function(){
+      console.log('Work');
+    };
+
+    var GoUniversity = function(){
+      console.log('StartUniversity');
+      d3.csv("UniDestination.csv", function(UniDestinationData) {
+        var filteredData = UniDestinationData.filter(function(d) {
+          if (d['LA'] === LA) {
+            return d;
+          };
+        });
+        var chance = Math.floor((Math.random() * 100) + 1);
+
+        var Oxbridge = filteredData[0]['Oxbridge'];
+        var TopThirdHEI = filteredData[0]['TopThirdHEI'];
+        var OtherHE = filteredData[0]['OtherHE'];
+
+        if (Oxbridge >= chance) {
+          document.getElementById("Education3").innerHTML = "You get into Oxbridge!" + "In your area " + Oxbridge + "% of KS5 leavers got into university in Oxford or Cambridge, while " +
+            TopThirdHEI + "% went to a university in the top third of university rankings. There were " + OtherHE + "% who went to other higher education institutes.";
+            UniPoints = 3;
+          PassUni();
+        } else if (TopThirdHEI >= chance)  {
+          document.getElementById("Education3").innerHTML = "You got into a university ranked in the top third! " + "In your area " + Oxbridge + "% of KS5 leavers got into university in Oxford or Cambridge, while " +
+            TopThirdHEI + "% went to a university in the top third of university rankings. There were " + OtherHE + "% who went to other higher education institutes.";
+            UniPoints = 2;
+          PassUni();
+        } else if (OtherHE >= chance)  {
+          document.getElementById("Education3").innerHTML = "You got into university! It isn't one in the top third, but atleast you got in. " + "In your area " + Oxbridge + "% of KS5 leavers got into university in Oxford or Cambridge, while " +
+            TopThirdHEI + "% went to a university in the top third of university rankings. There were " + OtherHE + "% who went to other higher education institutes.";
+            UniPoints = 1;
+          PassUni();
+        } else {
+          document.getElementById("Education2").innerHTML = "You didn't get into university, it is time to start work.";
+          Work();
+          doughnut = doughnut + 1;
+        };
+      });
+    };
+
+var PassUni = function() {
+  var chance = Math.floor((Math.random() * 100) + 1);
+  if ( 81 <= chance ) {
+    document.getElementById("Education4").innerHTML = "You didn't finish university, it is time to start work.";
+    doughnut = doughnut + 1;
+    Work();
+  }
+  else {
+    document.getElementById("Education4").innerHTML = "Congratulations - you finished university!";
+    EducationLevel = EducationLevel + UniPoints;
+    console.log('Education Level: ' + EducationLevel);
+    doughnut = doughnut + 1;
+    Work();
+  }
+}
+
+  </script>
+</body>
+
+</html>

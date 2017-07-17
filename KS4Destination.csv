@@ -1,0 +1,175 @@
+LA,EmploymentOrTraining,NotInEducationOrWork,FurtherEducation
+Darlington,3,7,90
+Durham,3,8,89
+Gateshead,4,7,89
+Hartlepool,3,7,90
+Middlesbrough,4,8,88
+Newcastle upon Tyne,3,7,90
+North Tyneside,4,8,88
+Northumberland,3,7,90
+Redcar and Cleveland,3,7,90
+South Tyneside,4,8,88
+Stockton-on-Tees,4,6,90
+Sunderland,4,8,88
+Blackburn with Darwen,2,5,93
+Blackpool,4,10,86
+Bolton,3,8,89
+Bury,3,5,92
+Cheshire East,3,4,93
+Cheshire West and Chester,3,5,92
+Cumbria,4,5,91
+Halton,3,6,91
+Knowsley,5,10,85
+Lancashire,3,5,92
+Liverpool,3,7,90
+Manchester,3,9,88
+Oldham,3,7,90
+Rochdale,3,8,89
+Salford,5,8,87
+Sefton,3,6,91
+St. Helens,3,7,90
+Stockport,3,5,92
+Tameside,4,7,89
+Trafford,2,4,94
+Warrington,4,5,91
+Wigan,4,7,89
+Wirral,2,5,93
+Barnsley,5,7,88
+Bradford,2,8,90
+Calderdale,2,4,94
+Doncaster,5,8,87
+East Riding of Yorkshire,2,4,94
+Kingston upon Hull City of,3,9,88
+Kirklees,2,5,93
+Leeds,4,7,89
+North East Lincolnshire,3,9,88
+North Lincolnshire,3,6,91
+North Yorkshire,3,4,93
+Rotherham,4,8,88
+Sheffield,4,7,89
+Wakefield,3,7,90
+York,4,4,92
+Derby,5,7,88
+Derbyshire,4,5,91
+Leicester,3,8,89
+Leicestershire,5,5,90
+Lincolnshire,3,4,93
+Northamptonshire,4,5,91
+Nottingham,4,11,85
+Nottinghamshire,4,6,90
+Rutland,3,5,91
+Birmingham,2,6,92
+Coventry,3,7,90
+Dudley,3,6,91
+Herefordshire,4,4,92
+Sandwell,5,7,88
+Shropshire,5,5,90
+Solihull,3,4,93
+Staffordshire,4,4,92
+Stoke-on-Trent,4,7,89
+Telford and Wrekin,4,7,89
+Walsall,3,7,90
+Warwickshire,3,4,93
+Wolverhampton,2,7,91
+Worcestershire,3,5,92
+Bedford,2,6,92
+Cambridgeshire,3,5,92
+Central Bedfordshire,3,4,93
+Essex,4,6,90
+Hertfordshire,3,3,94
+Luton,2,6,92
+Norfolk,4,6,90
+Peterborough,2,6,92
+Southend-on-Sea,3,5,92
+Suffolk,3,4,93
+Thurrock,4,6,90
+Bracknell Forest,4,0,96
+Brighton and Hove,2,5,93
+Buckinghamshire,3,2,95
+East Sussex,3,6,91
+Hampshire,4,4,92
+Isle of Wight,3,5,92
+Kent,3,5,92
+Medway,2,6,92
+Milton Keynes,5,5,90
+Oxfordshire,4,4,92
+Portsmouth,4,7,89
+Reading,3,6,91
+Slough,1,3,96
+Southampton,4,10,86
+Surrey,4,4,92
+West Berkshire,4,2,94
+West Sussex,3,5,92
+Windsor and Maidenhead,4,3,93
+Wokingham,2,3,95
+Bath and North East Somerset,3,4,93
+Bournemouth,3,7,90
+Bristol City of,4,8,88
+Cornwall,3,6,91
+Devon,3,5,92
+Dorset,3,4,93
+Gloucestershire,4,5,91
+Isles of Scilly,0,0,100
+North Somerset,3,4,93
+Plymouth,2,4,94
+Poole,5,5,90
+Somerset,3,5,92
+South Gloucestershire,3,5,92
+Swindon,3,5,92
+Torbay,2,4,94
+Wiltshire,3,4,93
+Camden,2,7,91
+City of London,1,5,94
+Hackney,1,5,94
+Hammersmith and Fulham,1,5,94
+Haringey,1,6,93
+Islington,2,6,92
+Kensington and Chelsea,2,6,92
+Lambeth,1,7,92
+Lewisham,1,6,93
+Newham,1,5,94
+Southwark,1,5,94
+Tower Hamlets,2,6,92
+Wandsworth,1,4,95
+Westminster,1,5,94
+Barking and Dagenham,2,6,92
+Barnet,1,4,95
+Bexley,2,4,94
+Brent,1,3,96
+Bromley,3,3,94
+Croydon,2,5,93
+Ealing,1,4,95
+Enfield,1,5,94
+Greenwich,2,5,93
+Harrow,1,4,95
+Havering,3,5,92
+Hillingdon,3,5,92
+Hounslow,1,4,95
+Kingston upon Thames,2,3,95
+Merton,2,5,93
+Redbridge,1,3,96
+Richmond upon Thames,3,7,90
+Sutton,2,2,96
+Waltham Forest,1,4,95
+Isle of Anglesey,8,2,90
+Gwynedd,8,2,90
+Conwy,4,2,94
+Denbighshire,6,3,91
+Flintshire,8,1,91
+Wrexham,11,2,87
+Powys,6,2,92
+Ceredigion,9,1,90
+Pembrokeshire,14,4,82
+Carmarthenshire,7,4,89
+Swansea,7,3,90
+Neath Port Talbot,10,4,86
+Bridgend,8,3,89
+The Vale of Glamorgan,6,2,92
+Rhondda Cynon Taf,5,4,91
+Merthyr Tydfil,13,2,85
+Caerphilly,7,2,91
+Blaenau Gwent,8,2,90
+Torfaen,12,2,86
+Monmouthshire,9,2,89
+Newport,8,3,89
+Cardiff,6,5,89
