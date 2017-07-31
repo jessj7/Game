@@ -1,0 +1,179 @@
+AgeRange,Occupation,ThousandEmployed,MedianAnnualWage,Percentage
+18-21,Professional occupation,9,16928,5
+18-21,Associate professional and technical occupations,25,16430,13
+18-21,"Science, engineering and technology associate professionals",13,16072,7
+18-21,Administrative and secretarial occupations,14,15353,7
+18-21,Administrative occupations,14,15440,7
+18-21,Skilled trades occupations,49,16061,26
+18-21,"Skilled metal, electrical and electronic trades",32,16545,17
+18-21,Skilled construction and building trades,9,14281,5
+18-21,Sales and customer service occupations,20,14379,11
+18-21,Sales occupations,16,14445,9
+18-21,Customer service occupations,5,14030,3
+18-21,"Process, plant and machine operatives",13,15571,7
+18-21,"Process, plant and machine operatives",12,15530,6
+18-21,Elementary occupations,48,14088,26
+18-21,Elementary trades and related occupations,11,15270,6
+18-21,Elementary administration and service occupations,37,13724,20
+22-29,"Managers, directors and senior officials",85,26939,6
+22-29,Corporate managers and directors,69,27918,5
+22-29,Other managers and proprietors,16,24137,1
+22-29,Professional occupation,273,30000,20
+22-29,"Science, research, engineering and technology professionals",109,30000,8
+22-29,Health professionals,30,27608,2
+22-29,Teaching and educational professionals,36,29130,3
+22-29,"Business, media and public service professionals",98,31323,7
+22-29,Associate professional and technical occupations,249,26611,18
+22-29,"Science, engineering and technology associate professionals",73,25308,5
+22-29,Health and social care associate professionals,9,21104,1
+22-29,Protective service occupations,25,30419,2
+22-29,"Culture, media and sports occupations",20,22326,1
+22-29,Business and public service associate professionals,122,28062,9
+22-29,Administrative and secretarial occupations,103,20510,7
+22-29,Administrative occupations,96,20737,7
+22-29,Secretarial and related occupations,7,16621,1
+22-29,Skilled trades occupations,260,23887,19
+22-29,Skilled agricultural and related trades,14,17928,1
+22-29,"Skilled metal, electrical and electronic trades",149,26561,11
+22-29,Skilled construction and building trades,47,24664,3
+22-29,"Textiles, printing and other skilled trades",49,19344,4
+22-29,"Caring, leisure and other service occupations",44,17818,3
+22-29,Caring personal service occupations,31,17236,2
+22-29,Sales and customer service occupations,113,17889,8
+22-29,Sales occupations,74,17399,5
+22-29,Customer service occupations,39,19020,3
+22-29,"Process, plant and machine operatives",116,21809,8
+22-29,"Process, plant and machine operatives",77,21587,6
+22-29,Transport and mobile machine drivers and operatives,39,22044,3
+22-29,Elementary occupations,156,17680,11
+22-29,Elementary trades and related occupations,34,18834,2
+22-29,Elementary administration and service occupations,122,17378,9
+30-39,"Managers, directors and senior officials",317,40939,13
+30-39,Corporate managers and directors,268,45317,11
+30-39,Other managers and proprietors,49,30000,2
+30-39,Professional occupation,611,39941,25
+30-39,"Science, research, engineering and technology professionals",263,41716,11
+30-39,Health professionals,60,38539,2
+30-39,Teaching and educational professionals,100,38184,4
+30-39,"Business, media and public service professionals",188,39415,8
+30-39,Associate professional and technical occupations,476,33842,20
+30-39,"Science, engineering and technology associate professionals",110,28998,5
+30-39,Health and social care associate professionals,21,28185,1
+30-39,Protective service occupations,85,36611,3
+30-39,"Culture, media and sports occupations",26,28874,1
+30-39,Business and public service associate professionals,235,36562,10
+30-39,Administrative and secretarial occupations,129,24689,5
+30-39,Administrative occupations,122,24865,5
+30-39,Secretarial and related occupations,8,22462,0
+30-39,Skilled trades occupations,327,26613,13
+30-39,Skilled agricultural and related trades,13,19608,1
+30-39,"Skilled metal, electrical and electronic trades",189,29999,8
+30-39,Skilled construction and building trades,58,26203,2
+30-39,"Textiles, printing and other skilled trades",67,21826,3
+30-39,"Caring, leisure and other service occupations",58,20112,2
+30-39,Caring personal service occupations,37,19078,2
+30-39,"Leisure, travel and related personal service occupations",21,22281,1
+30-39,Sales and customer service occupations,112,20289,5
+30-39,Sales occupations,69,19422,3
+30-39,Customer service occupations,43,21979,2
+30-39,"Process, plant and machine operatives",213,24530,9
+30-39,"Process, plant and machine operatives",114,23133,5
+30-39,Transport and mobile machine drivers and operatives,100,25378,4
+30-39,Elementary occupations,197,20477,8
+30-39,Elementary trades and related occupations,41,20399,2
+30-39,Elementary administration and service occupations,156,20492,6
+40-49,"Managers, directors and senior officials",473,50978,18
+40-49,Corporate managers and directors,430,53094,16
+40-49,Other managers and proprietors,43,37118,2
+40-49,Professional occupation,621,44743,23
+40-49,"Science, research, engineering and technology professionals",254,45040,10
+40-49,Health professionals,82,44400,3
+40-49,Teaching and educational professionals,109,44200,4
+40-49,"Business, media and public service professionals",177,44539,7
+40-49,Associate professional and technical occupations,473,37710,18
+40-49,"Science, engineering and technology associate professionals",98,32342,4
+40-49,Health and social care associate professionals,19,28630,1
+40-49,Protective service occupations,103,39852,4
+40-49,"Culture, media and sports occupations",20,31487,1
+40-49,Business and public service associate professionals,232,40952,9
+40-49,Administrative and secretarial occupations,113,26010,4
+40-49,Administrative occupations,109,26127,4
+40-49,Secretarial and related occupations,5,20798,0
+40-49,Skilled trades occupations,366,28020,14
+40-49,Skilled agricultural and related trades,20,20840,1
+40-49,"Skilled metal, electrical and electronic trades",223,30861,8
+40-49,Skilled construction and building trades,66,26705,2
+40-49,"Textiles, printing and other skilled trades",57,21471,2
+40-49,"Caring, leisure and other service occupations",59,20478,2
+40-49,Caring personal service occupations,38,20067,1
+40-49,"Leisure, travel and related personal service occupations",21,22346,1
+40-49,Sales and customer service occupations,72,22026,3
+40-49,Sales occupations,46,21163,2
+40-49,Customer service occupations,25,24127,1
+40-49,"Process, plant and machine operatives",298,26292,11
+40-49,"Process, plant and machine operatives",126,25318,5
+40-49,Transport and mobile machine drivers and operatives,172,26795,6
+40-49,Elementary occupations,194,21670,7
+40-49,Elementary trades and related occupations,39,21249,1
+40-49,Elementary administration and service occupations,155,21765,6
+50-59,"Managers, directors and senior officials",405,50000,18
+50-59,Corporate managers and directors,359,52407,16
+50-59,Other managers and proprietors,46,35019,2
+50-59,Professional occupation,462,44078,21
+50-59,"Science, research, engineering and technology professionals",185,44475,8
+50-59,Health professionals,56,45891,2
+50-59,Teaching and educational professionals,87,43317,4
+50-59,"Business, media and public service professionals",134,43093,6
+50-59,Associate professional and technical occupations,357,37164,16
+50-59,"Science, engineering and technology associate professionals",89,33707,4
+50-59,Health and social care associate professionals,17,28797,1
+50-59,Protective service occupations,47,39661,2
+50-59,"Culture, media and sports occupations",10,32046,0
+50-59,Business and public service associate professionals,193,40140,9
+50-59,Administrative and secretarial occupations,105,26433,5
+50-59,Administrative occupations,102,26668,5
+50-59,Skilled trades occupations,329,29360,15
+50-59,Skilled agricultural and related trades,18,20293,1
+50-59,"Skilled metal, electrical and electronic trades",218,31869,10
+50-59,Skilled construction and building trades,59,28106,3
+50-59,"Textiles, printing and other skilled trades",33,22616,1
+50-59,"Caring, leisure and other service occupations",59,21174,3
+50-59,Caring personal service occupations,32,20167,1
+50-59,"Leisure, travel and related personal service occupations",26,22683,1
+50-59,Sales and customer service occupations,53,20741,2
+50-59,Sales occupations,36,19242,2
+50-59,Customer service occupations,16,26156,1
+50-59,"Process, plant and machine operatives",292,25441,13
+50-59,"Process, plant and machine operatives",114,25530,5
+50-59,Transport and mobile machine drivers and operatives,178,25426,8
+50-59,Elementary occupations,183,21434,8
+50-59,Elementary trades and related occupations,36,21206,2
+50-59,Elementary administration and service occupations,147,21510,7
+60,"Managers, directors and senior officials",118,41463,17
+60,Corporate managers and directors,103,43087,15
+60,Professional occupation,116,41482,16
+60,"Science, research, engineering and technology professionals",44,41838,6
+60,Teaching and educational professionals,22,49233,3
+60,"Business, media and public service professionals",39,38199,6
+60,Associate professional and technical occupations,85,32552,12
+60,"Science, engineering and technology associate professionals",25,28818,4
+60,Business and public service associate professionals,49,36026,7
+60,Administrative and secretarial occupations,39,24003,6
+60,Administrative occupations,37,24172,5
+60,Skilled trades occupations,119,26631,17
+60,Skilled agricultural and related trades,8,18688,1
+60,"Skilled metal, electrical and electronic trades",74,29756,11
+60,Skilled construction and building trades,22,24540,3
+60,"Textiles, printing and other skilled trades",15,20825,2
+60,"Caring, leisure and other service occupations",23,19830,3
+60,Caring personal service occupations,12,19890,2
+60,"Leisure, travel and related personal service occupations",10,19742,1
+60,Sales and customer service occupations,16,20100,2
+60,Sales occupations,11,18967,2
+60,Customer service occupations,5,23967,1
+60,"Process, plant and machine operatives",116,23542,16
+60,"Process, plant and machine operatives",41,22132,6
+60,Transport and mobile machine drivers and operatives,75,23935,11
+60,Elementary occupations,75,20274,11
+60,Elementary trades and related occupations,16,20027,2
+60,Elementary administration and service occupations,58,20302,8
