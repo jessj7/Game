@@ -1,0 +1,53 @@
+AgeRange,Occupations,EducationLevel,ThousandEmployed,MedianAnnualWage,Percentage,PercentageAdded
+60,Administrative and secretarial,1,39,24003,6,47
+60,Associate professional and technical,2,85,32552,12,38
+60,"Caring, leisure and other services",1,23,19830,3,68
+60,"Managers, directors and senior officials",2,118,41463,17,9
+60,"Process, plant and machine operatives",0,116,23542,16,81
+60,Professional jobs,2,116,41482,16,25
+60,Sales and customer service,0,16,20100,2,71
+60,"Service, Administration and Trades",0,75,20274,11,95
+60,Skilled trades ,0,119,26631,17,58
+18-21,Administrative and secretarial,1,14,15353,7,19
+18-21,Associate professional and technical,2,25,16430,13,10
+18-21,"Process, plant and machine operatives",0,13,15571,7,67
+18-21,Professional jobs,2,9,16928,5,3
+18-21,Sales and customer service,0,20,14379,11,57
+18-21,"Service, Administration and Trades",0,48,14088,26,85
+18-21,Skilled trades ,0,49,16061,26,38
+22-29,Administrative and secretarial,1,103,20510,7,47
+22-29,Associate professional and technical,2,249,26611,18,35
+22-29,"Caring, leisure and other services",1,44,17818,3,71
+22-29,"Managers, directors and senior officials",2,85,26939,6,3
+22-29,"Process, plant and machine operatives",0,116,21809,8,85
+22-29,Professional jobs,2,273,30000,20,16
+22-29,Sales and customer service,0,113,17889,8,76
+22-29,"Service, Administration and Trades",0,156,17680,11,94
+22-29,Skilled trades ,0,260,23887,19,60
+30-39,Administrative and secretarial,1,129,24689,5,60
+30-39,Associate professional and technical,2,476,33842,20,48
+30-39,"Caring, leisure and other services",1,58,20112,2,77
+30-39,"Managers, directors and senior officials",2,317,40939,13,6
+30-39,"Process, plant and machine operatives",0,213,24530,9,88
+30-39,Professional jobs,2,611,39941,25,25
+30-39,Sales and customer service,0,112,20289,5,81
+30-39,"Service, Administration and Trades",0,197,20477,8,96
+30-39,Skilled trades ,0,327,26613,13,70
+40-49,Administrative and secretarial,1,113,26010,4,61
+40-49,Associate professional and technical,2,473,37710,18,50
+40-49,"Caring, leisure and other services",1,59,20478,2,78
+40-49,"Managers, directors and senior officials",2,473,50978,18,9
+40-49,"Process, plant and machine operatives",0,298,26292,11,87
+40-49,Professional jobs,2,621,44743,23,29
+40-49,Sales and customer service,0,72,22026,3,80
+40-49,"Service, Administration and Trades",0,194,21670,7,96
+40-49,Skilled trades ,0,366,28020,14,70
+50-59,Administrative and secretarial,1,105,26433,5,57
+50-59,Associate professional and technical,2,357,37164,16,47
+50-59,"Caring, leisure and other services",1,59,21174,3,75
+50-59,"Managers, directors and senior officials",2,405,50000,18,9
+50-59,"Process, plant and machine operatives",0,292,25441,13,85
+50-59,Professional jobs,2,462,44078,21,28
+50-59,Sales and customer service,0,53,20741,2,78
+50-59,"Service, Administration and Trades",0,183,21434,8,96
+50-59,Skilled trades ,0,329,29360,15,67

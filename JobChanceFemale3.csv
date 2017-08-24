@@ -1,0 +1,51 @@
+AgeRange,Occupation,EducationLevel,ThousandEmployed,MedianAnnualWage,Percentage,PercentageAdded
+18-21,Administrative and secretarial,1,28,15348,24.13793103,24.13793103
+18-21,"Caring, leisure and other services",1,41,12830,35.34482759,59.48275862
+18-21,"Service, Administration and Trades",0,23,11668,19.82758621,79.31034483
+18-21,"Process, plant and machine operatives",0,2,13663,1.724137931,81.03448276
+18-21,Professional jobs,2,3,15607,2.586206897,83.62068966
+18-21,Sales and customer service,0,19,13618,16.37931034,100
+22-29,Administrative and secretarial,1,183,19702,17.49521989,17.49521989
+22-29,Associate professional and technical,2,197,25140,18.83365201,36.32887189
+22-29,"Caring, leisure and other services",1,169,15712,16.15678776,52.48565966
+22-29,"Managers, directors and senior officials",2,66,25334,6.309751434,58.79541109
+22-29,"Process, plant and machine operatives",0,20,17096,1.912045889,60.70745698
+22-29,Professional jobs,2,287,27927,27.43785851,88.14531549
+22-29,Sales and customer service,0,107,17421,10.22944551,98.37476099
+22-29,Skilled trades ,0,17,20775,1.625239006,100
+30-39,Administrative and secretarial,1,217,22036,14.60296097,14.60296097
+30-39,Associate professional and technical,2,304,29800,20.45760431,35.06056528
+30-39,"Caring, leisure and other services",1,136,17506,9.152086137,44.21265141
+30-39,"Service, Administration and Trades",0,57,15778,3.835800808,48.04845222
+30-39,"Managers, directors and senior officials",2,158,37030,10.63257066,58.68102288
+30-39,"Process, plant and machine operatives",0,26,19009,1.749663526,60.43068641
+30-39,Professional jobs,2,482,34725,32.43606999,92.86675639
+30-39,Sales and customer service,0,81,18848,5.450874832,98.31763122
+30-39,Skilled trades ,0,25,18674,1.682368775,100
+40-49,Administrative and secretarial,1,299,22142,18.46819024,18.46819024
+40-49,Associate professional and technical,2,275,30279,16.9857937,35.45398394
+40-49,"Caring, leisure and other services",1,196,17287,12.10623842,47.56022236
+40-49,"Service, Administration and Trades",0,72,15507,4.447189623,52.00741198
+40-49,"Managers, directors and senior officials",2,187,40506,11.55033972,63.5577517
+40-49,"Process, plant and machine operatives",0,34,18387,2.100061767,65.65781347
+40-49,Professional jobs,2,439,37054,27.1155034,92.77331686
+40-49,Sales and customer service,0,88,18055,5.435453984,98.20877085
+40-49,Skilled trades ,0,29,18605,1.791229154,100
+50-59,Administrative and secretarial,1,327,21907,20.85459184,20.85459184
+50-59,Associate professional and technical,2,212,27909,13.52040816,34.375
+50-59,"Caring, leisure and other services",1,188,18224,11.98979592,46.36479592
+50-59,"Service, Administration and Trades",0,79,15270,5.038265306,51.40306122
+50-59,"Managers, directors and senior officials",2,179,37061,11.41581633,62.81887755
+50-59,"Process, plant and machine operatives",0,40,17666,2.551020408,65.36989796
+50-59,Professional jobs,2,421,37713,26.8494898,92.21938776
+50-59,Sales and customer service,0,90,16758,5.739795918,97.95918367
+50-59,Skilled trades ,0,32,18743,2.040816327,100
+60,Administrative and secretarial,1,86,21115,25.36873156,25.36873156
+60,Associate professional and technical,2,38,25730,11.20943953,36.57817109
+60,"Caring, leisure and other services",1,52,18365,15.33923304,51.91740413
+60,"Service, Administration and Trades",0,21,15104,6.194690265,58.1120944
+60,"Managers, directors and senior officials",2,36,29907,10.61946903,68.73156342
+60,"Process, plant and machine operatives",0,10,15382,2.949852507,71.68141593
+60,Professional jobs,2,63,34868,18.5840708,90.26548673
+60,Sales and customer service,0,21,15682,6.194690265,96.46017699
+60,,0,12,16351,3.539823009,100
