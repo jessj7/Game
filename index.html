@@ -1277,9 +1277,9 @@
               noOptions();
             }
 
-          } else if ((chance <= index['Percentage']) && (EducationLevel >= index['EducationLevel'])) {
+          } else if (EducationLevel == 1) {
             var chance = Math.floor((Math.random() * 1) + 1);
-            if (chance <= index['Percentage']) {
+            if ((chance <= index['Percentage']) && (EducationLevel >= index['EducationLevel'])) {
               console.log(index);
               select.options[select.options.length] = new Option(index['Occupation'], index['MedianAnnualWage']);
               document.getElementById('Information').innerHTML =
@@ -1288,25 +1288,25 @@
               noOptions();
             }
 
-          } else if ((chance <= index['Percentage']) && (EducationLevel >= index['EducationLevel'])) {
+          } else if (EducationLevel == 2) {
             var chance = Math.floor((Math.random() * 5) + 1);
-            if (chance <= index['Percentage']) {
+            if ((chance <= index['Percentage']) && (EducationLevel >= index['EducationLevel'])) {
               console.log(index);
               select.options[select.options.length] = new Option(index['Occupation'], index['MedianAnnualWage']);
               noOptions();
             }
 
-          } else if ((chance <= index['Percentage']) && (EducationLevel >= index['EducationLevel'])) {
+          } else if (EducationLevel == 3) {
             var chance = Math.floor((Math.random() * 2) + 1);
-            if (chance <= index['Percentage']) {
+            if ((chance <= index['Percentage']) && (EducationLevel >= index['EducationLevel'])) {
               console.log(index);
               select.options[select.options.length] = new Option(index['Occupation'], index['MedianAnnualWage']);
               noOptions();
             }
 
-          } else if ((chance <= index['Percentage']) && (EducationLevel >= index['EducationLevel'])) {
+          } else if (EducationLevel == 4) {
             var chance = 1;
-            if (chance <= index['Percentage']) {
+            if ((chance <= index['Percentage']) && (EducationLevel >= index['EducationLevel'])) {
               console.log(index);
               select.options[select.options.length] = new Option(index['Occupation'], index['MedianAnnualWage']);
               noOptions();
