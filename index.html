@@ -7,6 +7,8 @@
   <script src="jspostcode.js"></script>
   <script src="d3.js"></script>
   <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Permanent+Marker" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Press+Start+2P" rel="stylesheet">
   <style>
     body {
       font-family: 'Raleway', sans-serif, helvetica, arial;
@@ -14,11 +16,20 @@
       background-image: url("background.jpg");
       background-size: cover;
       background-repeat: no-repeat;
+      background-attachment: fixed;
       color: grey;
+      height: 100%;
     }
 
     #UniversityChoice {
       display: none;
+    }
+
+    #Start {
+      left: 50%;
+      padding-left: 33%;
+      padding-right: 33%;
+      text-align: center;
     }
 
     .RedSize {
@@ -45,6 +56,9 @@
       padding: 15%;
     }
 
+    #AfterLifeButton {
+      display: none;
+    }
 
 
 
@@ -66,6 +80,16 @@
       fill: black;
       font-family: sans-serif;
       font-size: 12px;
+      text-align: center;
+    }
+
+    h1 {
+      text-align: center;
+      font-family: 'Permanent Marker', cursive;
+      font-size: 5em;
+    }
+
+    h2 {
       text-align: center;
     }
 
@@ -104,39 +128,157 @@
     }
 
     #Left2 {
-      color: #262626;
-      background-color: white;
-      border-style: solid;
-      border-color: white;
-      border-radius: 15px;
-      border-width: 0px;
-      margin-bottom: 40px;
-      width: 25%;
-      padding: 15px;
       display: none;
-      -webkit-box-shadow: inset 10px 10px 25px -17px rgba(0, 0, 0, 0.75);
-      -moz-box-shadow: inset 10px 10px 25px -17px rgba(0, 0, 0, 0.75);
-      box-shadow: inset 10px 10px 25px -17px rgba(0, 0, 0, 0.75);
+      color: white;
+      position: relative;
+      background-size: contain;
+      background: url('bank1.png') top center no-repeat;
+      margin: 0 auto;
+      width: 30%;
+      left: 40%;
+      margin-top: 5%;
+
+    }
+    #Left2::after {
+      padding-top: 66.4%;
+      display: inline-block;
+      content: '';
     }
 
+    #Left {
+      width: 50%;
+      padding-top: 20%;
+      padding-right: 25%;
+      padding-left: 25%;
+      margin-top: 10%;
+    }
+
+    #PercentagePensionInputForm {
+      width: 50%;
+      padding-top: 10%;
+      padding-right: 25%;
+      padding-left: 25%;
+      margin-top: 10%;
+    }
     #FamilyDiv {
       color: #262626;
-      background-color: white;
       border-style: solid;
       border-color: white;
       border-width: 0px;
       border-radius: 15px;
-      margin-bottom: 40px;
-      width: 25%;
-      padding: 15px;
+      margin-right: 5%;
+      width: 20%;
       display: none;
-      -webkit-box-shadow: inset 10px 10px 25px -17px rgba(0, 0, 0, 0.75);
-      -moz-box-shadow: inset 10px 10px 25px -17px rgba(0, 0, 0, 0.75);
-      box-shadow: inset 10px 10px 25px -17px rgba(0, 0, 0, 0.75);
+      vertical-align:top;
+    }
+
+    #YouDiv {
+      background-color: #F4989D;
+      color: 	white;
+      width: 100%;
+      border-width: 0px;
+      border-radius: 15px;
+      margin-bottom: 5px;
+      padding: 10px;
+    }
+
+
+    #YouText {
+      display: inline-block;
+      vertical-align: middle;
+    }
+
+    #SpouseDiv {
+      color: white;
+      width: 100%;
+      border-width: 0px;
+      border-radius: 15px;
+      margin-bottom: 5px;
+      padding: 10px;
+    }
+
+    #Child1Div {
+      color: white;
+      width: 100%;
+      border-width: 0px;
+      border-radius: 15px;
+      margin-bottom: 5px;
+      padding: 10px;
+    }
+    #Child2Div {
+      color: white;
+      width: 100%;
+      border-width: 0px;
+      border-radius: 15px;
+      margin-bottom: 5px;
+      padding: 10px;
+    }
+    #Child3Div {
+      color: white;
+      width: 100%;
+      border-width: 0px;
+      border-radius: 15px;
+      margin-bottom: 5px;
+      padding: 10px;
     }
 
     #EstateAgents {
       display: none;
+    }
+
+    #postcode {
+      padding: 5px;
+      border-radius: 15px;
+      font-size: 2em;
+      width: 50%;
+    }
+
+    #FButton {
+      background-color: #F4989D;
+      font-size: 2em;
+      color: white;
+      border: none;
+      border-radius: 15px;
+      width: 22%;
+      padding-top: 5px;
+      padding-bottom: 5px;
+      text-align: center;
+      box-shadow: 2px 2px 3px #AF6F70;
+    }
+
+    #MButton {
+      background-color: #75D1F6;
+      font-size: 2em;
+      color: white;
+      border: none;
+      border-radius: 15px;
+      width: 22%;
+      padding-top: 5px;
+      padding-bottom: 5px;
+      text-align: center;
+      box-shadow: 2px 2px 3px #388CA6;
+    }
+
+    #SButton {
+      background-color: #F78E55;
+      font-family: 'Permanent Marker', cursive;
+      color: white;
+      border: none;
+      font-size: 2em;
+      text-align: center;
+      border-radius: 15px;
+      width: 100%;
+      padding: 15px 15px;
+      text-align: center;
+      box-shadow: 2px 2px 3px #A56539;
+    }
+
+    #SButtonDiv {
+      display: inline-block;
+    }
+
+    #StartInputs {
+
     }
 
     .black_overlay {
@@ -183,10 +325,31 @@
       color: black;
     }
 
-    #ChartAreaDiv {}
-
     #ChartAreaDiv svg {
       width: 100%;
+    }
+
+    #ChartAreaDiv2 svg {
+      width: 100%;
+    }
+    #ChartAreaDiv3 svg {
+      width: 100%;
+    }
+    #AfterLifeContainer {
+      display: none;
+      padding-left: 20%;
+      padding-right: 20%;
+      width: 60%;
+      height: 100%;
+    }
+
+    .AfterLife_overlay {
+      background-color: white;
+      padding: 20px;
+    }
+
+    .AfterLife_IMG {
+      padding-left: 45%;
     }
 
     .y_axis.axis line {
@@ -215,12 +378,47 @@
     .IncomeColour {
       color: LightGreen;
     }
+
+    #ProgressBar {
+      display: flex;
+      justify-content: space-between;
+      position: fixed;
+      bottom: 0;
+      height: 10%;
+      width: 90%;
+      padding-left: 5%;
+      padding-right: 5%;
+    }
+
+    #SchoolLogo {
+      visibility: hidden;
+    }
+    #UniLogo{
+      visibility: hidden;
+    }
+    #WorkLogo{
+      visibility: hidden;
+    }
+    #KidsLogo{
+      visibility: hidden;
+    }
+    #HouseLogo{
+      visibility: hidden;
+    }
+    #WeddingLogo{
+      visibility: hidden;
+    }
+    #DeadLogo{
+      visibility: hidden;
+    }
   </style>
 </head>
 
 <body>
   <div id='FamilyDiv'>
     <div id='YouDiv'>
+      <div id='YouText'>
+      </div>
     </div>
     <div id='SpouseDiv'>
     </div>
@@ -239,7 +437,7 @@
     <div id='PercentagePensionInputForm'>
       <form>
         Percentage of salary go towards pension:
-        <input id='PercentagePensionInput' type="number" placeholder=3 name="quantity" min=3 max=100>%
+        <input id='PercentagePensionInput' type="number" placeholder=3 value=3 name="quantity" min=3 max=100>%
       </form>
     </div>
   </div>
@@ -248,12 +446,16 @@
 
 
     <div id='Start'>
-      <p>Welcome to start of life, you are a
-        <select name="Gender" id="Gender">
-    <option value="Female">Female</option>
-    <option value="Male">Male</option>
-  </select> , who is living in <input type="text" placeholder="Enter Postcode" id="postcode" maxlength="13" alt="Enter Postcode">
-        <button name="Start" type="button" onclick="testPostCode();">Start life.</button>
+      <h1 style="margin-bottom: 10px;"><span style="font-family: 'Press Start 2P', cursive; font-size: 0.6em;">Stats</span> Life!</h1>
+      <p>Choose your gender and location to start you life...</p>
+      <div id="StartInputs">
+      <button name="Male" type="button" id="MButton" onclick="ButtonMale();">♂</button>
+      <button name="Female" type="button" id="FButton" onclick="ButtonFemale();">♀</button>
+      <input type="text" placeholder="Enter Postcode" id="postcode" maxlength="13" alt="Enter Postcode">
+    </div>
+    <div id="SButtonDiv">
+        <button name="Start" type="button" id="SButton" onclick="testPostCode();">START LIFE</button>
+    </div>
     </div>
 
 
@@ -272,7 +474,7 @@
     <div id='WorkWage'>
     </div>
   </div>
-  </p>
+
 
   <div id='RetireButton'>
   </div>
@@ -288,6 +490,9 @@
         Life Event
       </p>
     </div>
+    <div id="PopOutContent">
+    </div>
+    <button name="Continue" id="AfterLifeButton" type="button" onclick="AfterLife(); document.getElementById('Information').style.display='none';document.getElementById('light').style.display='none';document.getElementById('ExpensesTooHigh').style.display='none';document.getElementById('EstateAgents').style.display='none';document.getElementById('LifeEvent').style.display='none';document.getElementById('LifeChoice').style.display='none';document.getElementById('fade').style.display='none';document.getElementById('AfterLifeContainer').style.display='block';document.getElementById('FamilyDiv').style.display='none';document.getElementById('Left2').style.display='none';document.getElementById('ProgressBar').style.display='none';">Continue</button>
     <div id="LifeChoice">
       <p>
         Life Choice
@@ -337,28 +542,88 @@
       </div>
       <div id='RentChoice'>
         <p>
-          <u>Choose a house to rent:</u>
+          <b>Choose a house to rent:</b>
         </p>
         <select id="RentDropDown" name="WorkDropDown"></select>
       </div>
     </div>
-    <div id="PopOutContent">
-    </div>
+
     <p id="EducationChartTitle">
       <b>WHERE PEOPLE ARE 6 MONTHS AFTER GCSEs IN YOUR AREA (Figures in %)</b>
     </p>
     <div id="ChartAreaDiv">
     </div>
+    <div id="ChartAreaDiv2">
+    </div>
     <div id='WeddingPrice'>
       <form>
         The majority of couples spend between £5,000 and £10,000 on their wedding, how much do you want to spend on your yours?<br> £
-        <input id='WeddingPriceInput' type="number" placeholder=50 name="quantity" min=50>
+        <input id='WeddingPriceInput' type="number" placeholder=50 name="quantity" min=50 value=50>
       </form>
       <button name="Continue" type="button" onclick="GetMarried();document.getElementById('LifeEvent').style.display='none';document.getElementById('ExpensesTooHigh').style.display='none';document.getElementById('EstateAgents').style.display='none';document.getElementById('LifeChoice').style.display='none';document.getElementById('light').style.display='none';document.getElementById('fade').style.display='none'">Yes</button>
     </div>
     <button id="TheContinueButton" name="Start" type="button" onclick="StartLife();document.getElementById('Information').style.display='none';document.getElementById('light').style.display='none';document.getElementById('ExpensesTooHigh').style.display='none';document.getElementById('EstateAgents').style.display='none';document.getElementById('LifeEvent').style.display='none';document.getElementById('LifeChoice').style.display='none';document.getElementById('fade').style.display='none'">Continue</button>
   </div>
   <div id="fade" class="black_overlay"></div>
+  <div id="AfterLifeContainer">
+    <div id="AfterLifeIntro"><h1>Welcome to the After Life & Game Summary</h1></div>
+    <div id="AfterLifeEducation" class="AfterLife_overlay">
+      <div id="AfterLifeEducationImg" class="AfterLife_IMG">
+        <img  width="20%" src="school.png">
+      </div>
+      <div id="AfterLifeEducationText">
+        <h2>Early Education</h2>
+        <p>The education levels accross the country vary a lot from place to place. Even without realising it, when you first step into school the chances of doing well or poorly in school are already thrown based on your location alone. Of course whether you did your homework is your decision - but it still doesn't change the fact that where you live can give you a head start at school, or hold you back.</p>
+        <h3>Location 6 Months After GCSEs in England & Wales (Figures in %)</h3>
+        <div id="ChartAreaDiv3"></div>
+        <h3>Location 6 Months After GCSEs in Your Area (Figures in %)</h3>
+      </div>
+    </div>
+    <div id="AfterLifeUni" class="AfterLife_overlay">
+      <div id="AfterLifeUniImg" class="AfterLife_IMG">
+        <img  width="20%" src="uni.png">
+      </div>
+      <h2>Further Education</h2>
+      <div id="AfterLifeUniText"></div>
+    </div>
+    <div id="AfterLifeWork" class="AfterLife_overlay">
+      <div id="AfterLifeWorkImg" class="AfterLife_IMG">
+        <img  width="20%" src="work.png">
+      </div>
+      <h2>Your Working Life</h2>
+      <div id="AfterLifeWorkTextArea"></div>
+      <h3>The Gender Difference in Pay For Your Job by Age (£)</h3>
+      <div id="AfterLifeWorkTextAreaGraph"></div>
+      <div id="AfterLifeWorkTextGender"></div>
+    </div>
+    <div id="AfterLifeHouse" class="AfterLife_overlay">
+      <div id="AfterLifeHouseImg" class="AfterLife_IMG">
+        <img width="20%" src="house.png">
+      </div>
+      <h2>Housing</h2>
+      <div id="AfterLifeHouseText"></div>
+    </div>
+    <div id="AfterLifeDeath" class="AfterLife_overlay">
+      <div id="AfterLifeDeathImg" class="AfterLife_IMG">
+        <img width="20%" src="dead.png">
+      </div>
+      <h2>Death</h2>
+      <div id="AfterLifeDeathText">Your chance of death at a certain age by a certain cause is determined by two things. First being</div>
+    </div>
+    <div id="GameOver" class="AfterLife_overlay">
+      <h1 style="font-family: 'Press Start 2P', cursive; font-size: 2em; color: #CC3529;">GAME OVER</h1>
+      <p>Thank you for playing through Stats Life! Hopefully it has given you something to think about how our own geographical location can tips the odds against or for us in life.<br><br>This project was built on open data mostly from the ONS website from datasets based around 2015. From births, to marriages to death, every step that wasn't in your control was based on chance from real life data.</p>
+    </div>
+  </div>
+  <div id="ProgressBar">
+    <img height="100%" src="school.png" id="SchoolLogo">
+    <img height="100%" src="uni.png" id="UniLogo">
+    <img height="100%" src="work.png" id="WorkLogo">
+    <img height="100%" src="house.png" id="HouseLogo">
+    <img height="100%" src="kids.png" id="KidsLogo">
+    <img height="100%" src="wedding.png" id="WeddingLogo">
+    <img height="100%" src="dead.png" id="DeadLogo">
+  </div>
   <script>
     var Paused = false;
     var xhr = new XMLHttpRequest();
@@ -366,7 +631,7 @@
     var LSOA = '';
     var LA = '';
     var Region = '';
-    var Gender = 'Male';
+    var Gender = 'Female';
     var IMD = '';
     var FinalAgeDeath = '';
     var EducationLevel = 0;
@@ -384,6 +649,8 @@
     var WentToUniversity = false;
     var StudentLoanTotal = 44500;
     var StudentLoanFinished = false;
+    var EducationWidth = 0;
+    var Country = '';
 
     var ageRange = '';
     var CauseOfDeath = '';
@@ -441,13 +708,17 @@
     var SpouseRetirementTrue = false;
     var PensionPerYear = 0;
     var SpousePensionPerYear = 0;
+    var Oxbridge = '';
+    var TopThirdHEI = '';
+    var OtherHE = '';
+    var WageDifference = 0;
 
     var YearsLeft = 0;
     var PensionPerYearAfterTax = 0;
     var SpousePensionPerYearAfterTax = 0;
 
-    //var MarriageAge = 101;
-    var MarriageAge = 40;
+    var MarriageAge = 101;
+    //var MarriageAge = 40;
     var Married = false;
 
     //EmptyChildVariable
@@ -474,6 +745,17 @@
     var SpouseJobCSV = '';
     var InformationDisplay = false;
 
+    var ButtonMale = function(){
+      Gender = 'Male';
+      document.getElementById("YouDiv").style.backgroundColor = "#75D1F6";
+      document.getElementById("YouDiv").style.boxShadow = "2px 2px 3px #388CA6";
+    };
+
+    var ButtonFemale = function(){
+      Gender = 'Female';
+      document.getElementById("YouDiv").style.backgroundColor = "#F4989D";
+      document.getElementById("YouDiv").style.boxShadow = "2px 2px 3px #AF6F70";
+    };
 
     var PauseLife = function() {
       Paused = true;
@@ -520,7 +802,7 @@
       if (newPostCode) {
         document.getElementById('postcode').value = newPostCode;
         console.log(newPostCode);
-        Gender = document.getElementById('Gender').value;
+        //Gender = document.getElementById('Gender').value;
         PostcodeSearch();
       } else alert("Postcode must be 6 Characters Long");
     }
@@ -547,6 +829,7 @@
       AdminDistrictName = data.result.admin_district;
       AdminDistrictWard = data.result.admin_ward;
       Region = data.result.region;
+      Country = data.result.country;
       if (LA === null) {
         LA = data.result.admin_district;
       };
@@ -835,13 +1118,16 @@
     //If you reach death age the timer will stop, when you are 16 it'll pause for education.
     var add = function() {
       document.getElementById("Start").style.display = "none"
-      document.getElementById("FamilyDiv").style.display = "block";
+      document.getElementById("FamilyDiv").style.display = "inline-block";
       window.setInterval(
         function() {
           if (Paused != true && blocker3 != 1) {
             familyDivFunction();
             if (doughnut == FinalAgeDeath && blocker3 == 0) {
               blocker3 = 1;
+              document.getElementById("TheContinueButton").style.display = "none";
+              document.getElementById("AfterLifeButton").style.display = "block";
+              document.getElementById("DeadLogo").style.visibility = 'visible';
               document.getElementById("PopOutContent").innerHTML = "You died at " + doughnut + " years old from " + CauseOfDeath + '.';
               LifeEvent();
               Paused = true;
@@ -851,8 +1137,9 @@
               KS4();
             } else if (doughnut == 17) {
               //Make empty before results at 18.
-              document.getElementById("ChartAreaDiv").innerHTML = "";
+              document.getElementById("ChartAreaDiv").style.display = "none";
               document.getElementById("EducationChartTitle").innerHTML = "";
+              document.getElementById("SchoolLogo").style.visibility = 'visible';
               doughnut = doughnut + 1;
             }
             //Stop timer at 18 to give job and university options depending on grades and GCSE.
@@ -898,13 +1185,21 @@
                 var HouseholdIncome = WageAfterTax
               }
               Remaining = HouseholdIncome - (Rent + Expenses);
+
+              if (Rent>0){
+                document.getElementById("HouseLogo").style.visibility = 'visible';
+              }
+
+              if (Rent==0){
+                document.getElementById("HouseLogo").style.visibility = 'hidden';
+              }
               parseInt(Remaining);
               if (typeof Remaining === 'number' && (Remaining % 1) === 0) {
                 Savings = Savings + Remaining;
                 console.log('HEEEEEEY ' + Remaining);
               };
-              document.getElementById("Left2").style.display = "block";
-              document.getElementById("Left").innerHTML = "<u>BANK</u><br>Job: " + Job + "<br>Salary: <span class='IncomeColour'>£" + numberComma(
+              document.getElementById("Left2").style.display = "inline-block";
+              document.getElementById("Left").innerHTML = "<br>Job: " + Job + "<br>Salary: <span class='IncomeColour'>£" + numberComma(
                   Salary) + '</span><br>' +
                 "Salary After Tax: <span class='IncomeColour'>£" + numberComma(WageAfterTax) + "</span><br>Rent: <span class='ExpenseColour'>£" + numberComma(Rent) + "</span><br>Expenses: <span class='ExpenseColour'>£" + numberComma(Expenses) +
                 "</span><br>Remaining: £" + numberComma(Remaining) + "<br>Savings: £" + numberComma(Savings) + "<br>Pension Pot: £" + numberComma(PensionPot);
@@ -1000,9 +1295,6 @@
           };
         });
 
-
-
-
         var chance = Math.floor((Math.random() * 100) + 1);
 
         var FurtherEducation = filteredData[0]['FurtherEducation'];
@@ -1022,7 +1314,8 @@
 
 
         var width = parseInt(d3.select("#ChartAreaDiv").style("width")) - margin.left - margin.right;
-        var height = 200 - margin.top - margin.bottom;
+        EducationWidth = parseInt(d3.select("#ChartAreaDiv").style("width")) - margin.left - margin.right;
+        var height = 145 - margin.top - margin.bottom;
         var data = [{
           "Percentage": (FurtherEducation + EmploymentOrTraining + NotInEducationOrWork),
           "Name": "FurtherEducation"
@@ -1110,7 +1403,7 @@
             return x(d.Percentage);
           })
           .attr("y", 15) // y position of the text inside bar
-          .attr("dx", -15) // padding-right
+          .attr("dx", -10) // padding-right
           .attr("dy", ".42em") // vertical-align: middle
           .attr("text-anchor", "middle") // text-align: right
           .style("font-weight", "bold")
@@ -1125,15 +1418,7 @@
           .attr("y2", 15)
           .attr("stroke-width", 2)
           .attr("stroke", "grey");
-        /*
-        chart.append("text")
-          .attr("x", -16)
-          .attr("y", 15) // y position of the text inside bar
-          .attr("text-anchor", "middle") // text-align: right
-          .style("font-weight", "bold")
-          .style("font-size", "0.74em")
-          .text("Not in education <br> or work");
-          */
+
         chart.append("foreignObject")
           .attr("x", -70)
           .attr("y", -10)
@@ -1216,7 +1501,7 @@
       Job = 'Student';
       LifeChoice();
       document.getElementById("TheContinueButton").style.display = "block";
-      document.getElementById("Left").innerHTML = "Age: " + doughnut + "<br>Gender: " + Gender + "<br>Born in: " + AdminDistrictWard + ', ' + AdminDistrictName + "<br>Job: " + Job + "<br>Salary: £" + numberComma(Salary) + '<br>';
+      document.getElementById("Left").innerHTML = "<b>You</b><br>Age: " + doughnut + "<br>Gender: " + Gender + "<br>Born in: " + AdminDistrictWard + ', ' + AdminDistrictName + "<br>Job: " + Job + "<br>Salary: £" + numberComma(Salary) + '<br>';
       if (document.getElementById('ApplyUni').value == 'Yes') {
 
         document.getElementById("UniversityChoice").style.display = "none";
@@ -1226,7 +1511,20 @@
       } else if (document.getElementById('ApplyUni').value == 'No') {
         document.getElementById("UniversityChoice").style.display = "none";
         document.getElementById("TheContinueButton").style.display = "block";
+
+        d3.csv("UniDestination.csv", function(UniDestinationData) {
+          var filteredData = UniDestinationData.filter(function(d) {
+            if (d['LA'] === LA) {
+              return d;
+            };
+          });
+
+          Oxbridge = filteredData[0]['Oxbridge'];
+          TopThirdHEI = filteredData[0]['TopThirdHEI'];
+          OtherHE = filteredData[0]['OtherHE'];
+        });
         Work();
+
       } else {
         alert('Choose whether or not to apply to university.');
       };
@@ -1240,7 +1538,7 @@
       //Check which age range to look for in the csv
       var JobCSV = '';
       if (Gender === "Male") {
-        JobCSV = "JobChance3.csv";
+        JobCSV = "JobChance5.csv";
       } else if (Gender === "Female") {
         JobCSV = "JobChanceFemale3.csv";
       }
@@ -1343,24 +1641,28 @@
         });
         var chance = Math.floor((Math.random() * 100) + 1);
 
-        var Oxbridge = filteredData[0]['Oxbridge'];
-        var TopThirdHEI = filteredData[0]['TopThirdHEI'];
-        var OtherHE = filteredData[0]['OtherHE'];
+        Oxbridge = filteredData[0]['Oxbridge'];
+        TopThirdHEI = filteredData[0]['TopThirdHEI'];
+        OtherHE = filteredData[0]['OtherHE'];
+        var WalesUniExplainer = '';
+        if (Country == 'Wales'){
+          WalesUniExplainer = '<br><br>NOTE: Figures for Welsh University are only intended for use in the game as they are basic estimates based on how many people in the areas go to university. This is because the data of where they go to university is not published in Wales as it is in England.'
+        }
         //Education3 changed to PopOutContent
         if (Oxbridge >= chance) {
           document.getElementById("PopOutContent").innerHTML = "You get into Oxbridge!" + "In your area " + Oxbridge + "% of KS5 leavers got into university in Oxford or Cambridge, while " +
-            TopThirdHEI + "% went to a university in the top third of university rankings. There were " + OtherHE + "% who went to other higher education institutes.";
+            TopThirdHEI + "% went to a university in the top third of university rankings. There were " + OtherHE + "% who went to other higher education institutes." + WalesUniExplainer;
           UniPoints = 3;
           PopOutWait2 = true;
         } else if (TopThirdHEI >= chance) {
           document.getElementById("PopOutContent").innerHTML = "You get into a university ranked in the top third! " + "In your area " + Oxbridge + "% of KS5 leavers got into university in Oxford or Cambridge, while " +
-            TopThirdHEI + "% went to a university in the top third of university rankings. There were " + OtherHE + "% who went to other higher education institutes.";
+            TopThirdHEI + "% went to a university in the top third of university rankings. There were " + OtherHE + "% who went to other higher education institutes." + WalesUniExplainer;
           UniPoints = 2;
           PopOutWait2 = true;
         } else if (OtherHE >= chance) {
           document.getElementById("PopOutContent").innerHTML = "You get into university! It isn't one in the top third, but atleast you got in. " + "In your area " + Oxbridge +
             "% of KS5 leavers got into university in Oxford or Cambridge, while " +
-            TopThirdHEI + "% went to a university in the top third of university rankings. There were " + OtherHE + "% who went to other higher education institutes.";
+            TopThirdHEI + "% went to a university in the top third of university rankings. There were " + OtherHE + "% who went to other higher education institutes." + WalesUniExplainer;
           UniPoints = 1;
           PopOutWait2 = true;
         } else {
@@ -1377,7 +1679,7 @@
     var PassUni = function() {
       var chance = Math.floor((Math.random() * 100) + 1);
       WentToUniversity = true;
-      doughnut = doughnut + 3;
+      doughnut = doughnut + 4;
       if (81 <= chance) {
         document.getElementById("PopOutContent").innerHTML = "You didn't finish university, it is time to start work.";
         document.getElementById("TheContinueButton").style.display = "block";
@@ -1386,6 +1688,7 @@
       } else {
         document.getElementById("PopOutContent").innerHTML = "Congratulations - you finished university!";
         document.getElementById("TheContinueButton").style.display = "block";
+        document.getElementById("UniLogo").style.visibility = 'visible';
         LifeEvent();
         EducationLevel = EducationLevel + UniPoints;
         console.log('Education Level: ' + EducationLevel);
@@ -1411,6 +1714,7 @@
         });
         console.log(filteredData);
         var Difference1 = (parseInt(filteredData[0]['Difference']) * parseInt(Salary)) / 100;
+        WageDifference = Math.round(filteredData[0]['Difference']);
         console.log(Difference1);
         Salary = parseInt(Salary) + ((parseInt(filteredData[0]['Difference']) * parseInt(Salary)) / 100);
         Salary = Math.round(Salary);
@@ -1418,12 +1722,12 @@
         //WorkWage to PopOut
         if (Math.round(filteredData[0]['Difference']) > 0) {
           document.getElementById("TheContinueButton").style.display = "block";
-          document.getElementById("PopOutContent").innerHTML = "Your salary is £" + numberComma(Salary) + " a year, and will increase each year based on the average salary for your age and job. <br>There is a +" + Math.round(filteredData[0][
-            'Difference'
-          ]) + "% difference in wage between" + LA + " and average for England and Wales.";
+          document.getElementById("WorkLogo").style.visibility = 'visible';
+          document.getElementById("PopOutContent").innerHTML = "Your salary is £" + numberComma(Salary) + " a year, and will increase each year based on the average salary for your age and job. <br>There is a +" + Math.round(filteredData[0]['Difference']) + "% difference in wage between " + LA + " and average for England and Wales.";
           LifeEvent();
         } else {
           document.getElementById("TheContinueButton").style.display = "block";
+          document.getElementById("WorkLogo").style.visibility = 'visible';
           document.getElementById("PopOutContent").innerHTML = "Your salary is £" + numberComma(Salary) + " a year, and will increase each year based on the average salary for your age and job. <br>There is a " + Math.round(filteredData[0][
             'Difference'
           ]) + "% difference in wage between " + LA + " and average for England and Wales.";
@@ -1440,7 +1744,7 @@
     var CheckSalary = function() {
       var JobCSV = '';
       if (Gender === "Male") {
-        JobCSV = "JobChance3.csv";
+        JobCSV = "JobChance5.csv";
       } else if (Gender === "Female") {
         JobCSV = "JobChanceFemale3.csv";
       }
@@ -1844,7 +2148,7 @@
         PensionPot = PensionPot + (YearlyPensionContribution * 2);
         PensionPot = Math.round(PensionPot);
       } else if (Remaining < 0) {
-        document.getElementById('PercentagePensionInput').value = 0;
+        document.getElementById('PercentagePensionInput').value = 3;
       }
 
       var ExpRent = parseInt(Expenses) + parseInt(Rent);
@@ -1901,6 +2205,7 @@
     }
 
     function loadMyCSV1Child() {
+      document.getElementById("KidsLogo").style.visibility = 'visible';
       return d3.csv('Names.csv', function(NameData) {
         NameChild1(NameData);
       })
@@ -2027,21 +2332,35 @@
     };
 
     var familyDivFunction = function() {
-      document.getElementById("YouDiv").innerHTML = "<u>You</u><br>Age: " + doughnut + "<br>Gender: " + Gender + "<br>Born in: " + AdminDistrictWard + ", " + AdminDistrictName;
+      document.getElementById("YouText").innerHTML = "Age: " + doughnut + "<br>Gender: " + Gender + "<br>Born in: " + AdminDistrictWard + ", " + AdminDistrictName;
       if (howManyChildren >= 1) {
-        document.getElementById("Child1Div").innerHTML = "<u>" + Child1Name + "</u><br>" + "Relationship: Child <br>Gender: " + Child1Gender + "<br>Age: " + (doughnut - Child1Doughnut);
+        document.getElementById("Child1Div").style.backgroundColor = "#F5D662";
+        document.getElementById("Child1Div").style.boxShadow = "2px 2px 3px #857435";
+        document.getElementById("Child1Div").innerHTML = "<b>" + Child1Name + "</b><br>" + "Relationship: Child <br>Gender: " + Child1Gender + "<br>Age: " + (doughnut - Child1Doughnut);
       };
 
       if (howManyChildren >= 2) {
-        document.getElementById("Child2Div").innerHTML = "<u>" + Child2Name + "</u><br>" + "Relationship: Child <br>Gender: " + Child2Gender + "<br>Age: " + (doughnut - Child2Doughnut);
+        document.getElementById("Child2Div").style.backgroundColor = "#F5D662";
+        document.getElementById("Child2Div").style.boxShadow = "2px 2px 3px #857435";
+        document.getElementById("Child2Div").innerHTML = "<b>" + Child2Name + "</b><br>" + "Relationship: Child <br>Gender: " + Child2Gender + "<br>Age: " + (doughnut - Child2Doughnut);
       };
 
       if (howManyChildren >= 3) {
-        document.getElementById("Child3Div").innerHTML = "<u>" + Child3Name + "</u><br>" + "Relationship: Child <br>Gender: " + Child3Gender + "<br>Age: " + (doughnut - Child3Doughnut);
+        document.getElementById("Child3Div").style.backgroundColor = "#F5D662";
+        document.getElementById("Child3Div").style.boxShadow = "2px 2px 3px #857435";
+        document.getElementById("Child3Div").innerHTML = "<b>" + Child3Name + "</b><br>" + "Relationship: Child <br>Gender: " + Child3Gender + "<br>Age: " + (doughnut - Child3Doughnut);
       };
 
       if (Married == true) {
-        document.getElementById("SpouseDiv").innerHTML = "<u>" + SpouseName + "</u><br>" + "Relationship: Spouse<br>Gender: " + SpouseGender + "<br>Job: " + SpouseOccupation + "<br>Salary: £" + numberComma(SpouseWage);
+        document.getElementById("SpouseDiv").innerHTML = "<b>" + SpouseName + "</b><br>" + "Relationship: Spouse<br>Gender: " + SpouseGender + "<br>Job: " + SpouseOccupation + "<br>Salary: £" + numberComma(SpouseWage);
+        if (SpouseGender == 'Female'){
+          document.getElementById("SpouseDiv").style.backgroundColor = "#F4989D";
+          document.getElementById("SpouseDiv").style.boxShadow = "2px 2px 3px #AF6F70";
+        }
+        else if (SpouseGender == 'Male'){
+          document.getElementById("SpouseDiv").style.backgroundColor = "#75D1F6";
+          document.getElementById("SpouseDiv").style.boxShadow = "2px 2px 3px #388CA6";
+        }
       }
     }
 
@@ -2056,6 +2375,7 @@
 
     var Wedding = function() {
       drawLine();
+      document.getElementById("WeddingLogo").style.visibility = 'visible';
       //document.getElementById("LineChartDiv").style.display = "block";
       if (Savings > 0) {
         Savings = parseInt(Savings);
@@ -2068,7 +2388,7 @@
       document.getElementById("MarriedChoice").style.display = "none";
     };
     var GetMarried = function() {
-      document.getElementById("ChartAreaDiv").style.display = "none";
+      document.getElementById("ChartAreaDiv2").style.display = "none";
       document.getElementById("EducationChartTitle").style.display = "none";
       console.log('SAVINGS BEFORE WEDDING: ' + Savings);
       var WeddingPrice1 = document.getElementById("WeddingPriceInput").value;
@@ -2136,9 +2456,10 @@
           console.log(SpouseWorkData);
           SpouseWork(SpouseWorkData, AgeRangeTest);
         });
+
       } else if (SpouseGender == "Male") {
         //SpouseJobCSV = "JobChance.csv";
-        return d3.csv('JobChance3.csv', function(SpouseWorkData) {
+        return d3.csv('JobChance5.csv', function(SpouseWorkData) {
           //SpouseWork(SpouseWorkData);
           var AgeRangeTest = '';
           if (doughnut <= 21) {
@@ -2157,6 +2478,7 @@
           console.log(SpouseWorkData);
           SpouseWork(SpouseWorkData, AgeRangeTest);
         });
+
       };
     };
 
@@ -2193,7 +2515,7 @@
     var CheckSpouseSalary = function() {
       var JobCSV = '';
       if (Gender === "Male") {
-        JobCSV = "JobChance3.csv";
+        JobCSV = "JobChance5.csv";
       } else if (Gender === "Female") {
         JobCSV = "JobChanceFemale3.csv";
       }
@@ -2381,6 +2703,7 @@
       document.getElementById('ExpensesTooHigh').style.display = 'none';
       document.getElementById("EstateAgents").style.display = "block";
       document.getElementById("PopOutContent").innerHTML = "";
+
       if (Remaining > 0 && Rent == 0) {
         document.getElementById("ExpensesTooHigh").innerHTML = "Your parents want your room back, choose whether or not to move!";
         document.getElementById('ExpensesTooHigh').style.display = 'block';
@@ -2401,7 +2724,7 @@
       }
 
       document.getElementById("EducationChartTitle").innerHTML = "<b>Percent of Married People by Age</b>";
-      var width = parseInt(d3.select("#ChartAreaDiv").style("width")) - margin.left - margin.right;
+      var width = parseInt(d3.select("#ChartAreaDiv2").style("width")) - margin.left - margin.right;
       var height = 200 - margin.top - margin.bottom;
 
       var x = d3.scaleLinear().range([0, width]);
@@ -2425,7 +2748,7 @@
 
 
       //Appending svg with chart to #chart
-      var svg = d3.select("#ChartAreaDiv").append("svg")
+      var svg = d3.select("#ChartAreaDiv2").append("svg")
         .attr("width", width + margin.left + margin.right)
         .attr("height", height + margin.top + margin.bottom)
         .append("g")
@@ -2433,7 +2756,7 @@
           "translate(" + margin.left + "," + margin.top + ")")
         .attr("margin", margin);
 
-      var tooltip = d3.select('#ChartAreaDiv')
+      var tooltip = d3.select('#ChartAreaDiv2')
         .append('div')
         .attr('class', 'tooltip');
       var AmountOfStuff = 0;
@@ -2506,5 +2829,347 @@
 
       });
     };
+
+    var AfterLife = function(){
+      document.getElementById('AfterLifeEducationText').appendChild(document.getElementById('ChartAreaDiv'));
+      document.getElementById('ChartAreaDiv').style.display = 'block';
+
+      var FurtherEducation = 92;
+      var EmploymentOrTraining = 5;
+      var NotInEducationOrWork = 3;
+
+      var FurtherEducation = parseInt(FurtherEducation);
+      var EmploymentOrTraining = parseInt(EmploymentOrTraining);
+      var NotInEducationOrWork = parseInt(NotInEducationOrWork);
+
+      var margin = {
+        top: 60,
+        right: 70,
+        bottom: 40,
+        left: 70
+      }
+
+
+      //var width = parseInt(d3.select("#ChartAreaDiv3").style("width")) - margin.left - margin.right;
+      var width = EducationWidth;
+      console.log("Width is:" + width);
+      var height = 145 - margin.top - margin.bottom;
+      var data = [{
+        "Percentage": (FurtherEducation + EmploymentOrTraining + NotInEducationOrWork),
+        "Name": "FurtherEducation"
+      }, {
+        "Percentage": (EmploymentOrTraining + NotInEducationOrWork),
+        "Name": "EmploymentOrTraining"
+      }, {
+        "Percentage": NotInEducationOrWork,
+        "Name": "NotInEducationOrWork"
+      }]; // here are the data values; v1 = total, v2 = current value
+      var data1 = [FurtherEducation, EmploymentOrTraining, NotInEducationOrWork];
+      var chart = d3.select("#ChartAreaDiv3").append("svg") // creating the svg object inside the container div
+        .attr("width", width + margin.left + margin.right)
+        .attr("height", height + margin.top + margin.bottom)
+        .append("g")
+        .attr("transform",
+          "translate(" + margin.left + "," + margin.top + ")")
+        .attr("margin", margin);
+
+      var x = d3.scaleLinear() // takes the fixed width and creates the percentage from the data values
+        .domain([0, d3.max(data, function(d) {
+          return d.Percentage;
+        })])
+        .range([0, width]);
+
+      var x1 = d3.scaleLinear() // takes the fixed width and creates the percentage from the data values
+        .domain([0, d3.max(data1, function(d) {
+          return d.Percentage;
+        })])
+        .range([0, width]);
+
+      var a = ['#9CDAB3', '#F5AD9D', '#82AEDF'];
+
+      var defs = chart.append("defs")
+      var pattern = chart.append("pattern")
+        .data(data)
+        .enter()
+        .selectAll("pattern")
+        .attr('id', "hash4_4")
+        .attr('width', "7")
+        .attr('height', "7")
+        .attr('patternUnits', "userSpaceOnUse")
+        .attr('patternTransform', "rotate(45)")
+        .append("rect")
+        .attr('width', "4")
+        .attr('height', "8")
+        .attr('transform', "translate(0,0)")
+        .attr('fill', "white")
+        .style('opacity', 1)
+
+      chart.selectAll("myrect") // this is what actually creates the bars
+        .data(data)
+        .enter().append("rect")
+        .attr('class', 'myrect')
+        .attr("width", function(d) { // sets the x position of the bar
+          return x(d.Percentage);
+        })
+        .attr("fill", function(d, i) {
+          return a[i]
+        })
+        .attr("height", 30)
+        .attr("rx", 6) // rounded corners
+        .attr("ry", 6);
+
+      chart.selectAll("myrect") // this is what colors in the bar
+        .data(data)
+        .enter()
+        .append("rect")
+        .attr('class', 'myrect')
+        .attr("width", function(d) {
+          return x(d.Percentage);
+        })
+        .attr("height", 30)
+        .attr("rx", 6)
+        .attr("ry", 6)
+        .attr('fill', "url(#hash4_4)")
+        .attr('id', function(d, i) {
+          return d['Name']
+        })
+
+      chart.selectAll("text") // adding the text labels to the bar
+        .data(data)
+        .enter().append("text")
+        .attr("x", function(d) { // sets the x position of the bar
+          return x(d.Percentage);
+        })
+        .attr("y", 15) // y position of the text inside bar
+        .attr("dx", -15) // padding-right
+        .attr("dy", ".42em") // vertical-align: middle
+        .attr("text-anchor", "middle") // text-align: right
+        .style("font-weight", "bold")
+        .style("font-size", "1.25em")
+        .data(data1)
+        .text(String);
+
+      chart.append("line")
+        .attr("x1", 0)
+        .attr("y1", 15)
+        .attr("x2", -10)
+        .attr("y2", 15)
+        .attr("stroke-width", 2)
+        .attr("stroke", "grey");
+
+      chart.append("foreignObject")
+        .attr("x", -70)
+        .attr("y", -10)
+        .attr("width", 45)
+        .attr("height", 100)
+        .append("xhtml:ChartAreaDiv3")
+        .style("font-weight", "bold")
+        .style("font-size", "0.74em")
+        .style("color", "grey")
+        .html("Not in education or work");
+
+
+      chart.append("line")
+        .attr("x1", width)
+        .attr("y1", 15)
+        .attr("x2", width + 15)
+        .attr("y2", 15)
+        .attr("stroke-width", 2)
+        .attr("stroke", "grey");
+
+      chart.append("foreignObject")
+        .attr("x", width + 17)
+        .attr("y", -10)
+        .attr("width", 45)
+        .attr("height", 100)
+        .append("xhtml:ChartAreaDiv3")
+        .style("font-weight", "bold")
+        .style("font-size", "0.74em")
+        .style("color", "grey")
+        .html("In education");
+
+
+      //THIS ONE NEEDS TO BE MADE SO ITS X CHANGES TO CENTER OF BAR
+      chart.append("line")
+        .attr("x1", 40)
+        .attr("y1", 30)
+        .attr("x2", 40)
+        .attr("y2", 45)
+        .attr("stroke-width", 2)
+        .attr("stroke", "grey");
+
+      chart.append("foreignObject")
+        .attr("x", 20)
+        .attr("y", 50)
+        .attr("width", 150)
+        .attr("height", 100)
+        .append("xhtml:ChartAreaDiv3")
+        .style("font-weight", "bold")
+        .style("font-size", "0.74em")
+        .style("color", "grey")
+        .html("Employment or training");
+
+    //Here we look at the University Box and what needs  to go into there.
+    var WalesUniExplainer = '';
+    console.log('Hey');
+    if (Country == 'Wales'){
+      WalesUniExplainer = '<br><br>NOTE: Figures for Welsh University are only intended for use in the game as they are basic estimates based on how many people in the areas go to university. This is because the data of where they go to university is not published in Wales as it is in England.'
+    }
+
+    if (UniPoints == 3) {
+      document.getElementById("AfterLifeUniText").innerHTML = "You went to Oxford or Cambridge University!" + "In your area " + Oxbridge + "% of KS5 leavers got into university in Oxford or Cambridge, while " +
+        TopThirdHEI + "% in your area went to a university in the top third of university rankings, 25% did overall in England. In your area there were " + OtherHE + "% who went to other higher education institutes, while 34% did overall in England." + WalesUniExplainer;
+        console.log('Hey');
+    } else if (UniPoints == 2) {
+      document.getElementById("AfterLifeUniText").innerHTML = "You went to a university ranked in the top third! " + "In your area " + Oxbridge + "% of KS5 leavers got into university in Oxford or Cambridge, while " +
+        TopThirdHEI + "% in your area went to a university in the top third of university rankings, 25% did overall in England. In your area there were " + OtherHE + "% who went to other higher education institutes, while 34% did overall in England." + WalesUniExplainer;
+        console.log('Hey');
+
+    } else if (UniPoints == 1) {
+      document.getElementById("AfterLifeUniText").innerHTML = "You went to a univeristy that wasn't ranked in the top third." + "In your area " + Oxbridge + "% of KS5 leavers got into university in Oxford or Cambridge, while " +
+        TopThirdHEI + "% in your area went to a university in the top third of university rankings, 25% did overall in England. In your area there were " + OtherHE + "% who went to other higher education institutes, while 34% did overall in England." + WalesUniExplainer;
+        console.log('Hey');
+    }
+    else {
+      document.getElementById("AfterLifeUniText").innerHTML = "You didn't go onto University. In your area " + Oxbridge + "% of KS5 leavers got into university in Oxford or Cambridge, while " +
+        TopThirdHEI + "% in your area went to a university in the top third of university rankings, 25% did overall in England. In your area there were " + OtherHE + "% who went to other higher education institutes, while 34% did overall in England." + WalesUniExplainer;
+        console.log('Hey');
+      };
+
+
+    //Now Lets Look at the Summary for Work
+
+    document.getElementById("AfterLifeWorkTextArea").innerHTML = "Throughout your working career there was a " + WageDifference + "% difference between your wages working in " + LA + " and the rest of England and Wales."
+
+    DrawLineJobArea();
+
+    document.getElementById("AfterLifeDeathText").innerHTML = "Your chance of death at a certain age by a certain cause is determined by two things. First being " + Gender + " and the multiple depravation index of your area which is " + IMD + ", with the most deprived areas in the UK have an index of 1 and the least deprived having an index of 10."
+    }
+
+    var DrawLineJobArea = function(){
+      var JobGenderCSV = '';
+
+      if (Job == 'Administrative and secretarial'){
+        JobGenderCSV = 'CompareAdminAndSecretorial.csv'
+      }
+
+      if (Job == 'Associate professional and technical'){
+        JobGenderCSV = 'CompareAssociateProfessionalAndTechnical.csv'
+      }
+
+      if (Job == 'Caring, leisure and other services'){
+        JobGenderCSV = 'CompareCaringLeisure.csv'
+      }
+
+      if (Job == 'Managers, directors and senior officials'){
+        JobGenderCSV = 'CompareManagersDirectors.csv'
+      }
+
+      if (Job == 'Process, plant and machine operatives'){
+        JobGenderCSV = 'CompareProcessPlantMachine.csv'
+      }
+
+      if (Job == 'Professional jobs'){
+        JobGenderCSV = 'CompareProfessionalJobs.csv'
+      }
+
+      if (Job == 'Sales and customer service'){
+        JobGenderCSV = 'CompareSales.csv'
+      }
+
+      if (Job == 'Service, Administration and Trades'){
+        JobGenderCSV = 'CompareService.csv'
+      }
+
+
+
+      var margin = {
+        top: 10,
+        right: 50,
+        bottom: 20,
+        left: 50
+      }
+
+      //var width = parseInt(d3.select("#AfterLifeWorkTextArea").style("width")) - margin.left - margin.right;
+      var width = EducationWidth;
+      var height = 200 - margin.top - margin.bottom;
+
+      var x = d3.scaleLinear().range([0, width]);
+      var y = d3.scaleLinear().range([height, 0]);
+
+      //Values For Genre Lines
+      var FemaleLine = d3.line()
+        .x(function(d) {
+          return x(d.Age);
+        })
+        .y(function(d) {
+          return y(d.Female);
+        });
+      var MaleLine = d3.line()
+        .x(function(d) {
+          return x(d.Age);
+        })
+        .y(function(d) {
+          return y(d.Male);
+        });
+
+
+      //Appending svg with chart to #chart
+      var svg = d3.select("#AfterLifeWorkTextAreaGraph").append("svg")
+        .attr("width", width + margin.left + margin.right)
+        .attr("height", height + margin.top + margin.bottom)
+        .append("g")
+        .attr("transform",
+          "translate(" + margin.left + "," + margin.top + ")")
+        .attr("margin", margin);
+
+      var tooltip = d3.select('#AfterLifeWorkTextArea')
+        .append('div')
+        .attr('class', 'tooltip');
+      var AmountOfStuff = 0;
+      d3.csv(JobGenderCSV, function(error, data) {
+        if (error) throw error;
+        data.forEach(function(d) {
+          d.Age = parseInt(d.Age);
+          d.Male = +d.Male;
+          d.Female = +d.Female;
+
+        });
+        console.log(data);
+
+        x.domain(d3.extent(data, function(d) {
+          return d.Age;
+        }));
+        y.domain([0, d3.max(data, function(d) {
+          //Female has the highest points.
+          return d.Male;
+        })]);
+        //Adding each of the Gender Paths
+        svg.append("path")
+          .data([data])
+          .attr("class", "line")
+          .attr("fill", "none")
+          .attr("stroke", "#F8CFD7")
+          .attr("stroke-width", "2px")
+          .style("opacity", 1)
+          .attr("d", FemaleLine);
+
+        svg.append("path")
+          .data([data])
+          .attr("class", "line")
+          .attr("fill", "none")
+          .attr("stroke", "#BDCBDB")
+          .attr("stroke-width", "2px")
+          .style("opacity", 1)
+          .attr("d", MaleLine);
+
+        svg.append("g")
+          .attr("transform", "translate(0," + height + ")")
+          .call(d3.axisBottom(x));
+
+        svg.append("g")
+          .call(d3.axisLeft(y).ticks(5));
+      });
+    }
   </script>
 </body>
