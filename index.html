@@ -13,7 +13,7 @@
     body {
       font-family: 'Raleway', sans-serif, helvetica, arial;
       background-color: #D6F2E4;
-      background-image: url("background.jpg");
+      background-image: url("background_city.jpg");
       background-size: cover;
       background-repeat: no-repeat;
       background-attachment: fixed;
@@ -27,6 +27,9 @@
 
     #Start {
       left: 50%;
+      padding-top: 15%;
+      color: white;
+      text-shadow: 1px 1px 4px #000000;
       padding-left: 33%;
       padding-right: 33%;
       text-align: center;
@@ -134,8 +137,16 @@
       text-align: center;
       padding: 7px;
       width: 20%;
+    }
+    #AgeRed p{
+      font-size: 0.8em;
+      padding-top: 4px;
+      margin-bottom: 2px;
+    }
+    #AgeRed2 {
       color: #CC3529;
-      font-size: 3em;
+      font-size: 2em;
+      margin: 3px;
     }
 
     #Left2 {
@@ -146,7 +157,8 @@
       background: url('bank1.png') top center no-repeat;
       margin: 0 auto;
       width: 30%;
-      left: 30%;
+      left: 5%;
+      font-size: 1.2em;
       margin-top: 5%;
 
     }
@@ -177,8 +189,9 @@
       border-color: white;
       border-width: 0px;
       border-radius: 15px;
-      margin-right: 5%;
-      width: 30%;
+      margin-left: 5%;
+      left: 50%;
+      width: 40%;
       display: none;
       vertical-align:top;
     }
@@ -188,7 +201,7 @@
       color: 	white;
       width: 100%;
       border-width: 0px;
-      border-radius: 15px;
+      border-radius: 10px;
       margin-bottom: 5px;
       padding: 10px;
     }
@@ -197,7 +210,7 @@
     #YouText {
       display: inline-block;
       vertical-align: top;
-      font-size: 1.25em;
+      font-size: 1.2em;
       width: 70%;
       padding-left: 4px;
       margin-top: 20px;
@@ -206,13 +219,13 @@
     #YouImg {
       display: inline-block;
       vertical-align: top;
-      width: 22%;
+      width: 18%;
     }
 
     #SpouseText {
       display: inline-block;
       vertical-align: top;
-      font-size: 1.25em;
+      font-size: 1.2em;
       width: 70%;
       padding-left: 4px;
       margin-top: 20px;
@@ -222,7 +235,7 @@
       display: inline-block;
       vertical-align: top;
       margin-top: 25px;
-      width: 22%;
+      width: 18%;
     }
 
 
@@ -243,7 +256,7 @@
       border-radius: 15px;
       margin-bottom: 5px;
       padding: 10px;
-      font-size: 1.25em;
+      font-size: 1.2em;
     }
     #Child2Div {
       color: white;
@@ -252,7 +265,7 @@
       border-radius: 15px;
       margin-bottom: 5px;
       padding: 10px;
-      font-size: 1.25em;
+      font-size: 1.2em;
     }
     #Child3Div {
       color: white;
@@ -261,7 +274,7 @@
       border-radius: 15px;
       margin-bottom: 5px;
       padding: 10px;
-      font-size: 1.25em;
+      font-size: 1.2em;
     }
 
     #EstateAgents {
@@ -457,8 +470,23 @@
 </head>
 
 <body>
+  <div id='Left2'>
+    <div id='Left'>
+      <div id='Expenses'>
+      </div>
+    </div>
+    <div id='PercentagePensionInputForm'>
+      <form>
+        Percentage of salary go towards pension:
+        <input id='PercentagePensionInput' type="number" placeholder=3 value=3 name="quantity" min=3 max=100>%
+      </form>
+    </div>
+  </div>
   <div id='FamilyDiv'>
-    <div id='AgeRed'></div>
+    <div id='AgeRed'>
+      <p>My Age</p>
+      <div id='AgeRed2'>11</div>
+    </div>
     <div id='YouDiv'>
       <img id='YouImg' src=''>
       <div id='YouText'></div>
@@ -474,19 +502,6 @@
     <div id='Child3Div'>
     </div>
   </div>
-  <div id='Left2'>
-    <div id='Left'>
-      <div id='Expenses'>
-      </div>
-    </div>
-    <div id='PercentagePensionInputForm'>
-      <form>
-        Percentage of salary go towards pension:
-        <input id='PercentagePensionInput' type="number" placeholder=3 value=3 name="quantity" min=3 max=100>%
-      </form>
-    </div>
-  </div>
-
   <div id='Right'>
 
 
@@ -762,8 +777,8 @@
     var PensionPerYearAfterTax = 0;
     var SpousePensionPerYearAfterTax = 0;
 
-    //var MarriageAge = 101;
-    var MarriageAge = 22;
+    var MarriageAge = 101;
+    //var MarriageAge = 22;
     var Married = false;
 
     //EmptyChildVariable
@@ -1164,8 +1179,13 @@
     //Start timer of life which ends when dead.
     //If you reach death age the timer will stop, when you are 16 it'll pause for education.
     var add = function() {
+
       document.getElementById("Start").style.display = "none"
+      document.body.style.backgroundImage = "url('background.jpg')";
       document.getElementById("FamilyDiv").style.display = "inline-block";
+      document.getElementById("Left2").style.display = "inline-block";
+      document.getElementById("PercentagePensionInputForm").style.visibility = "hidden";
+      document.getElementById("PercentagePensionInputForm").style.display = "block";
       window.setInterval(
         function() {
           if (Paused != true && blocker3 != 1) {
@@ -1523,21 +1543,21 @@
         document.getElementById('TheContinueButton').style.display = "block";
         document.getElementById('EducationChartTitle').style.display = "block";
         if ((EmploymentOrTraining >= chance) && (GCSEPass == false)) {
-          document.getElementById("PopOutContent").innerHTML = "You didn't do so well in your GCSEs. In your area " + LevelTwoChance + "% got 5 GCSEs between A* and C.<br><br>" +
+          document.getElementById("PopOutContent").innerHTML = "You didn't get 5 GCSEs between A* and C. In your area " + LevelTwoChance + "% did get 5 GCSEs between A* and C.<br><br>" +
             "You go into vocational training / employment after completeing your GCSEs. ";
           LifeEvent();
           doughnut = doughnut + 1;
         } else if ((NotInEducationOrWork >= chance) && (GCSEPass == false)) {
-          document.getElementById("PopOutContent").innerHTML = "You didn't do so well in your GCSEs. In your area " + LevelTwoChance + "% got 5 GCSEs between A* and C.<br><br>" +
+          document.getElementById("PopOutContent").innerHTML = "You didn't get 5 GCSEs between A* and C. In your area " + LevelTwoChance + "% did get 5 GCSEs between A* and C.<br><br>" +
             "You are not in education or work 6 months after finishing your GCSEs.";
           LifeEvent();
           doughnut = doughnut + 1;
         } else if (GCSEPass == true) {
-          document.getElementById("PopOutContent").innerHTML = "You did well in your GCSEs. In your area " + LevelTwoChance + "% got 5 GCSEs between A* and C.<br><br>" + "You decide to carry on in education.";
+          document.getElementById("PopOutContent").innerHTML = "You got 5 GCSEs between A* and C GCSEs. In your area " + LevelTwoChance + "% of students got the same.<br><br>" + "You decide to carry on in education.";
           LifeEvent();
           doughnut = doughnut + 1;
         } else {
-          document.getElementById("PopOutContent").innerHTML = "You didn't do so well in your GCSEs. In your area " + LevelTwoChance + "% got 5 GCSEs between A* and C.<br><br>" + "You decide to carry on in education.";
+          document.getElementById("PopOutContent").innerHTML = "You didn't get 5 GCSEs between A* and C. In your area " + LevelTwoChance + "% did get 5 GCSEs between A* and C.<br><br>" + "You decide to carry on in education.";
           LifeEvent();
           doughnut = doughnut + 1;
         };
@@ -1628,7 +1648,7 @@
               console.log(index);
               select.options[select.options.length] = new Option(index['Occupation'], index['MedianAnnualWage']);
               document.getElementById('Information').innerHTML =
-                "<p style='color:red' class='RedSize'><b>CAN'T</b><br></p><p><b>List of jobs you cannot apply to:</b><br><br>1. Managers, Directors and Senior Officials<br>2. Associate professional and technical<br>3. Professional Jobs<br><br><b>Reason:</b><br>You did not get the education required for most of these jobs.</p>";
+                "<p style='color:red' class='RedSize'><b>CAN'T</b><br></p><p><b>List of jobs you cannot apply to:</b><br><br>1. Managers, Directors and Senior Officials<br>2. Associate professional and technical<br>3. Professional Jobs<br><br><b>Reason:</b><br>You did not get the skill level required for most of these jobs.</p>";
               InformationDisplay = true;
               noOptions();
             }
@@ -1707,7 +1727,7 @@
           UniPoints = 2;
           PopOutWait2 = true;
         } else if (OtherHE >= chance) {
-          document.getElementById("PopOutContent").innerHTML = "You get into university! It isn't one in the top third, but atleast you got in. " + "In your area " + Oxbridge +
+          document.getElementById("PopOutContent").innerHTML = "You get into university! It isn't one ranked in the top third, but atleast you got in. " + "In your area " + Oxbridge +
             "% of KS5 leavers got into university in Oxford or Cambridge, while " +
             TopThirdHEI + "% went to a university in the top third of university rankings. There were " + OtherHE + "% who went to other higher education institutes." + WalesUniExplainer;
           UniPoints = 1;
@@ -2188,7 +2208,7 @@
         //Set max value and show pension input form
         var input = document.getElementById("PercentagePensionInput");
         input.setAttribute("max", maxPercentagePension);
-        document.getElementById("PercentagePensionInputForm").style.display = "block";
+        document.getElementById("PercentagePensionInputForm").style.visibility = "visible";
 
         //Find out how much pension is taken.
         YearlyPensionContribution = Salary * ((document.getElementById('PercentagePensionInput').value) / 100)
@@ -2380,7 +2400,7 @@
     };
 
     var familyDivFunction = function() {
-      document.getElementById("AgeRed").innerHTML = doughnut;
+      document.getElementById("AgeRed2").innerHTML = doughnut;
       document.getElementById("YouText").innerHTML = "Gender: " + Gender + "<br>Born in: " + AdminDistrictWard + ", " + AdminDistrictName;
       if (howManyChildren >= 1) {
         document.getElementById("Child1Div").style.backgroundColor = "#F5D662";
