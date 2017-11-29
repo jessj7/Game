@@ -181,10 +181,11 @@
 
     #PercentagePensionInputForm {
       width: 50%;
-      padding-top: 10%;
+      padding-top: 5%;
+      padding-bottom: 5%;
       padding-right: 25%;
       padding-left: 25%;
-      margin-top: 10%;
+      margin-bottom: 10%;
     }
 
     #FamilyDiv {
@@ -525,7 +526,7 @@
     </div>
     <div id='PercentagePensionInputForm'>
       <form>
-        Percentage of salary go towards pension:
+        Percent of salary to go into pension:
         <input id='PercentagePensionInput' type="number" placeholder=1 value=1 name="quantity" min=1 max=100>%
       </form>
     </div>
@@ -755,6 +756,7 @@
     <img height="100%" src="dead.png" id="DeadLogo">
   </div>
   <script>
+    //Set all the variables to be filled in throughout the game.
     var Paused = false;
     var xhr = new XMLHttpRequest();
     var newPostcode = '';
@@ -820,10 +822,10 @@
     var rentFilter = '';
     var RentCostData1 = '';
 
-    // doughnut is age hehe
+    // Doughnut means Age, originally this was to entertain myself but now I am worried if I change it I will forget to change it back. It also is still entertaining so aids my sainity.
     var doughnut = 12;
 
-    //PensionFunds
+    //Pension Fund Variables
     var maxPercentagePension = 3;
     var spouseMaxPercentagePension = 3;
     var YearlyPensionContribution = 0;
@@ -847,11 +849,12 @@
     var PensionPerYearAfterTax = 0;
     var SpousePensionPerYearAfterTax = 0;
 
-    var MarriageAge = 101;
-    //var MarriageAge = 22;
+    //var MarriageAge = 101;
+    //Can change this to below for testing to force the Marriage Age.
+    var MarriageAge = 22;
     var Married = false;
 
-    //EmptyChildVariable
+    //Variables for Children
     var howManyChildren = 0;
     var howManyDependantChildren = 0;
     var Child1Doughnut = '';
@@ -875,6 +878,7 @@
     var SpouseJobCSV = '';
     var InformationDisplay = false;
 
+    //If Male is chosen then change the colour of the players box to blue.
     var ButtonMale = function() {
       Gender = 'Male';
       document.getElementById("YouDiv").style.backgroundColor = "#75D1F6";
@@ -882,6 +886,7 @@
       document.getElementById("YouImg").src = "man.png";
     };
 
+    //If Female is chosen then change the colour of the players box to pink.
     var ButtonFemale = function() {
       Gender = 'Female';
       document.getElementById("YouDiv").style.backgroundColor = "#F4989D";
@@ -889,9 +894,12 @@
       document.getElementById("YouImg").src = "girl.png"
     };
 
+    //Pause the aging function.
     var PauseLife = function() {
       Paused = true;
     };
+
+    //Start life after pausing it and hide all popouts in doing so. Used after pop out boxes.
     var StartLife = function() {
       InformationDisplay = false;
       Paused = false;
@@ -905,16 +913,22 @@
         PopOutWait2 = false;
       };
     };
+
+    //A Life Event is something like having a baby - it is an event where the player has no choice.
     var LifeEvent = function() {
       document.getElementById('LifeEvent').style.display = 'block';
 
       PopOut();
 
     }
+
+    //Used for life events that players are given a choice in.
     var LifeChoice = function() {
       document.getElementById('LifeChoice').style.display = 'block';
       PopOut();
     }
+
+    //The 'popout' kind of event/choice box.
     var PopOut = function() {
       PauseLife();
       document.getElementById('light').style.display = 'block';
@@ -924,6 +938,7 @@
       }
     };
 
+    //The solution to seperate numbers into 1,000 from 1000 is from https://stackoverflow.com/a/2901298
     var numberComma = function(x) {
       return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
     };
@@ -934,7 +949,6 @@
       if (newPostCode) {
         document.getElementById('postcode').value = newPostCode;
         console.log(newPostCode);
-        //Gender = document.getElementById('Gender').value;
         PostcodeSearch();
       } else alert("Postcode must be 6 Characters Long");
     }
@@ -942,6 +956,7 @@
     //Searching for postcode on API to get LA and LSOA
     var PostcodeSearch = function() {
       var newPostCode = checkPostCode(document.getElementById('postcode').value);
+      //Removes any spaces in the postcode
       newPostCode = newPostCode.replace(/\s+/g, '');
       var url = 'https://api.postcodes.io/postcodes/' + newPostCode;
       console.log(url)
@@ -950,7 +965,7 @@
       xhr.send();
     };
 
-    //Process API response and store LA and LSOA data.
+    //Process API response and store LA, LSOA data and any other geographical data needed.
     var processResponse = function() {
       var data = JSON.parse(this.response);
       console.log(data);
@@ -972,6 +987,7 @@
       getIMD();
     };
 
+    //Function to get an area's index of multiple depravation
     var getIMD = function() {
       console.log('I am checking:');
       console.log('Local Authority: ' + LA);
@@ -979,7 +995,7 @@
 
       //Finds the economic depravation based on the LSOA
       d3.csv("IMDbyLSOA.csv", function(IMDData) {
-        //console.log("IMDData: ", IMDData);
+
         // If LSOA in .csv matches the LSOA variable then get its IMd
         IMD = IMDData.filter(function(d) {
           return d.LSOA === LSOA
@@ -1260,6 +1276,7 @@
         function() {
           if (Paused != true && blocker3 != 1) {
             familyDivFunction();
+            // When your age reaches the final death age the timer stops by setting the blocker variable.
             if (doughnut == FinalAgeDeath && blocker3 == 0) {
               blocker3 = 1;
               document.getElementById("TheContinueButton").style.display = "none";
@@ -1285,13 +1302,29 @@
               document.getElementById("TheContinueButton").style.display = "none";
               document.getElementById("PopOutContent").innerHTML = "";
               LifeChoice();
-              //doughnut = doughnut + 1;
+
             } else if (doughnut == 18 && GCSEPass == false && Blocker != 1) {
               PopOutWait = true;
               document.getElementById("PopOutContent").innerHTML = "Because of your GCSE grades holding you back, you don't go to university. <br><br>It is time for you to look for a job.";
               LifeEvent();
               Blocker = 1;
+              //NEW CODE to get University details at end of life.
+              d3.csv("UniDestination.csv", function(UniDestinationData) {
+                var filteredData = UniDestinationData.filter(function(d) {
+                  if (d['LA'] === LA) {
+                    return d;
+                  };
+                });
+
+                Oxbridge = filteredData[0]['Oxbridge'];
+                TopThirdHEI = filteredData[0]['TopThirdHEI'];
+                OtherHE = filteredData[0]['OtherHE'];
+              });
+              //END NEW CODE
             } else if (doughnut >= 18 && Job != 'No' && Job != 'Student' && RetirementTrue != true) {
+              //This is the main aging function of the game.
+
+              //Adds a year age.
               doughnut = doughnut + 1;
               BabyChance();
               MarriageChanceCheck();
@@ -1300,10 +1333,14 @@
               CheckFamilySize();
               TaxCalculator();
               PensionFunds();
+
+              //Check if user needs to go to estate agents, once every 10 years or when lack of money
               if (((doughnut - 1) % 10) == 0 && doughnut != 21 || Remaining < 0 && Rent != 0 && Savings < 0) {
                 VisitEstateAgents();
               };
               Rent = parseInt(Rent);
+
+              // Setting spouse pension pot and wage after retired.
               if (SpouseRetirementTrue == true) {
                 SpouseWageAfterTax = SpousePensionPerYearAfterTax;
                 if (doughnut != FinalAgeDeath) {
@@ -1315,14 +1352,16 @@
                 SpousePensionFunds();
               }
               CouncilTax = parseInt(CouncilTax);
-              console.log(CouncilTax + 'COUUUNCCILLLLL TAAAAAX');
+              console.log('Council Tax: £' + CouncilTax);
               if (Married == true) {
+                // Makes sure the household income is taken into account
                 var HouseholdIncome = WageAfterTax + SpouseWageAfterTax;
               } else if (Married == false) {
                 var HouseholdIncome = WageAfterTax
               }
               Remaining = HouseholdIncome - (Rent + Expenses);
 
+              //House logo present on time line below if not living with parents.
               if (Rent > 0) {
                 document.getElementById("HouseLogo").style.visibility = 'visible';
               }
@@ -1333,13 +1372,18 @@
               parseInt(Remaining);
               if (typeof Remaining === 'number' && (Remaining % 1) === 0) {
                 Savings = Savings + Remaining;
-                console.log('HEEEEEEY ' + Remaining);
               };
+
+              var RemainingColour = "<span style = 'color: LightCoral;'> £";
+
+              if (Remaining > 0) {
+                RemainingColour = "<span style = 'color: LightGreen;'> £";
+              }
               document.getElementById("Left2").style.display = "inline-block";
-              document.getElementById("Left").innerHTML = "<br>Job: " + Job + "<br>Salary: <span class='IncomeColour'>£" + numberComma(
-                  Salary) + '</span><br>' +
+              document.getElementById("Left").innerHTML = "<br><b>Job: " + Job + "</b><br>Salary: <span class='IncomeColour'>£" + numberComma(
+                  Salary) + '</span><br><br>' +
                 "Salary After Tax: <span class='IncomeColour'>£" + numberComma(WageAfterTax) + "</span><br>Rent: <span class='ExpenseColour'>£" + numberComma(Rent) + "</span><br>Expenses: <span class='ExpenseColour'>£" + numberComma(Expenses) +
-                "</span><br>Remaining: £" + numberComma(Remaining) + "<br>Savings: £" + numberComma(Savings) + "<br>Pension Pot: £" + numberComma(PensionPot);
+                "</span><br>Remaining:" + RemainingColour + numberComma(Remaining) + "</span><br><br><b>Savings</b><br>Pension Pot: £" + numberComma(PensionPot) + "<br>Savings: £" + numberComma(Savings);
             } else if (RetirementTrue == true) {
               doughnut = doughnut + 1;
               Salary = PensionPerYear;
@@ -1375,18 +1419,23 @@
               Remaining = HouseholdIncome - Rent - Expenses
               Savings = Savings + Remaining;
 
-              document.getElementById("Left").innerHTML = "Job: Retired" + "<br>Pension Salary: <span class='IncomeColour'>£" +
-                numberComma(
-                  Salary) + '</span><br>' +
+              var RemainingColour = "<span style = 'color: LightCoral;'> £";
+
+              if (Remaining > 0) {
+                RemainingColour = "<span style = 'color: LightGreen;'> £";
+              }
+              document.getElementById("Left2").style.display = "inline-block";
+              document.getElementById("Left").innerHTML = "<br><b>Job: Retired</b><br>Pension: <span class='IncomeColour'>£" + numberComma(
+                  Salary) + '</span><br><br>' +
                 "Pension After Tax: <span class='IncomeColour'>£" + numberComma(WageAfterTax) + "</span><br>Rent: <span class='ExpenseColour'>£" + numberComma(Rent) + "</span><br>Expenses: <span class='ExpenseColour'>£" + numberComma(Expenses) +
-                "</span><br>Remaining: £" + numberComma(WageAfterTax - Rent - Expenses) + "<br>Savings: £" + numberComma(
-                  Savings) + "<br>Pension Pot: £" + numberComma(PensionPot);
+                "</span><br>Remaining:" + RemainingColour + numberComma(Remaining) + "</span><br><br><b>Savings</b><br>Pension Pot: £" + numberComma(PensionPot) + "<br>Savings: £" + numberComma(Savings);
 
             } else if (doughnut < 18 && WentToUniversity == false) {
               doughnut = doughnut + 1;
             }
           }
-        }, 800);
+          //Below is the interval time for each each.
+        }, 1000);
     };
 
     function myFunction() {
@@ -1409,16 +1458,16 @@
         var chance = Math.floor((Math.random() * 100) + 1);
         LevelTwoChance = filteredData[0]['LevelTwo'];
         if (LevelTwoChance >= chance) {
-          //document.getElementById("Education").innerHTML = "You did well in your GCSEs. In your area " + LevelTwoChance + "% got 5 GCSEs between A* and C.";
+
           EducationLevel = EducationLevel + 1;
           console.log('Education Level: ' + EducationLevel);
           GCSEPass = true;
         } else {
-          //document.getElementById("Education").innerHTML = "You didn't do so well in your GCSEs. In your area " + LevelTwoChance + "% got 5 GCSEs between A* and C.";
+
           GCSEPass = false;
         };
 
-        //KS4Destination();
+
       });
     };
 
@@ -1449,7 +1498,7 @@
           left: 70
         }
 
-
+        //Create chart to see where KS4 leavers go after university
         var width = parseInt(d3.select("#ChartAreaDiv").style("width")) - margin.left - margin.right;
         EducationWidth = parseInt(d3.select("#ChartAreaDiv").style("width")) - margin.left - margin.right;
         var height = 145 - margin.top - margin.bottom;
@@ -1588,7 +1637,7 @@
           .html("In education");
 
 
-        //THIS ONE NEEDS TO BE MADE SO ITS X CHANGES TO CENTER OF BAR
+
         chart.append("line")
           .attr("x1", 40)
           .attr("y1", 30)
@@ -1634,11 +1683,12 @@
       });
     };
 
+    //Starting University
     var StartUniversity = function() {
       Job = 'Student';
       LifeChoice();
       document.getElementById("TheContinueButton").style.display = "block";
-      document.getElementById("Left").innerHTML = "<b>You</b><br>Age: " + doughnut + "<br>Gender: " + Gender + "<br>Born in: " + AdminDistrictWard + ', ' + AdminDistrictName + "<br>Job: " + Job + "<br>Salary: £" + numberComma(Salary) + '<br>';
+
       if (document.getElementById('ApplyUni').value == 'Yes') {
 
         document.getElementById("UniversityChoice").style.display = "none";
@@ -1648,7 +1698,7 @@
       } else if (document.getElementById('ApplyUni').value == 'No') {
         document.getElementById("UniversityChoice").style.display = "none";
         document.getElementById("TheContinueButton").style.display = "block";
-
+        //This is still needed as data at the end of the game
         d3.csv("UniDestination.csv", function(UniDestinationData) {
           var filteredData = UniDestinationData.filter(function(d) {
             if (d['LA'] === LA) {
@@ -1701,6 +1751,8 @@
         });
         lessThan1.forEach(function(index) {
           var chance = 0
+
+          //The education levels in the game are actually attributed to skill level in the job categories. Future versions may include ability to change job with length / skill taken into account.
           if (EducationLevel == 0) {
             var chance = Math.floor((Math.random() * 10) + 1);
             if ((chance <= index['Percentage']) && (EducationLevel >= index['EducationLevel'])) {
@@ -1808,13 +1860,13 @@
           document.getElementById("TheContinueButton").style.display = "block";
           PopOutWait = true;
 
-          //Work();
         };
         LifeEvent();
       });
     };
 
     var PassUni = function() {
+      //It isn't as simple as getting into univeristy, as this dissertation might eventually show, but you need to pass! The game uses the average 81% pass rate of university to measure this.
       var chance = Math.floor((Math.random() * 100) + 1);
       WentToUniversity = true;
       doughnut = doughnut + 4;
@@ -1843,6 +1895,8 @@
       Job = document.getElementById('WorkDropDown')[index].textContent;
       Salary = document.getElementById('WorkDropDown').value;
       console.log(AdminDistrict)
+
+      //Changes the wage depending on admin district
       d3.csv("PriceDifference.csv", function(PriceDifferenceData) {
         var filteredData = PriceDifferenceData.filter(function(d) {
           if (d['Code'] === AdminDistrict) {
@@ -1880,7 +1934,8 @@
       doughnut = doughnut + 1;
     }
 
-    //Function to change salary to avg for ageband.
+    //Function to change salary to avg for ageband. It finds the difference between current age band and the higher one to increase salary appropriately
+    //In future versions it might be interesting this to happen as a random event and not so gradually.
     var CheckSalary = function() {
       var JobCSV = '';
       if (Gender === "Male") {
@@ -1974,6 +2029,7 @@
       });
     };
 
+    //Find what the rental cost is for any particular area and for type of house.
     var HousingCost = function() {
       var select = document.getElementById("RentDropDown");
       if (Blocker4 == 0) {
@@ -2017,6 +2073,7 @@
         };
       };
       /*
+      THIS DELETED FUNCTION USED TO FORCE FAMILIES INTO DIFFERENT HOUSES DEPENDING ON THE FAMILY COMPOSITION, PREVENTING 1 BED HOUSE WITH WHOLE FAMILY.
       if (IsRent0Option == false) {
         if (howManyDependantChildren == 0) {
           //Delete 1 bed option
@@ -2085,6 +2142,8 @@
       }
 
       */
+
+      //Finds an areas council tax.
       d3.csv("CouncilTaxEnglandAndWales1.csv", function(CouncilTaxData) {
         var councilTaxFilter = CouncilTaxData.filter(function(d) {
           return (d.LocalAuthorityCode === AdminDistrict);
@@ -2119,6 +2178,7 @@
       });
     };
 
+    //Function to check family size and to move children out of home!
     var CheckFamilySize = function() {
 
       console.log('CHILDAGE: ' + (doughnut - Child1Doughnut));
@@ -2185,7 +2245,7 @@
         console.log('Quintile Band: ' + QuintileBand);
         console.log(salaryFilter);
       })
-      //Used to find out for each salary income what percentage was that of total income - not sure if the data could be used in this way actually.
+      //Used to find out for each salary income what percentage was that of total income - not sure if the data could be used in this way actually. This would have the potential to input a sort of benefits / support system if it could.
       /*
       d3.csv("IncomePercentage.csv", function(IncomePercentageData) {
         var IncomePercentageFilter = IncomePercentageData.filter(function(d) {
@@ -2199,6 +2259,8 @@
         console.log('Income: ' + parseInt(Income));
       })
       */
+
+      //Finds the expenses based on family size.
       Salary = parseInt(Salary);
       d3.csv("Expenses.csv", function(ExpensesData) {
         var ExpensesFilter = ExpensesData.filter(function(d) {
@@ -2208,6 +2270,7 @@
         console.log('Expenses: ' + Expenses);
       })
 
+      //Finds the variation in expenses by region.
       d3.csv("regionalDifferenceCostLiving.csv", function(RegionalDifferenceData) {
         var RegionalDifferenceFilter = RegionalDifferenceData.filter(function(d) {
           return (d.Region == Region)
@@ -2225,7 +2288,6 @@
     //Calculate NI, income tax and student loan tax.
     var TaxCalculator = function() {
       var IncomeTaxableWage = parseInt(Salary) - 11000;
-
       var IncomeTax = 0;
       var NationalInsurance = 0;
       var StudentLoan = 0;
@@ -2346,6 +2408,7 @@
       })
     }
 
+    //Naming your children has never been easy with this new Javascript function!
     function loadMyCSV1Child() {
       document.getElementById("KidsLogo").style.visibility = 'visible';
       return d3.csv('Names.csv', function(NameData) {
@@ -2473,6 +2536,7 @@
       };
     };
 
+    //This function updates the people boxes for the player, their spouse and their children.
     var familyDivFunction = function() {
       document.getElementById("AgeRed2").innerHTML = doughnut;
       document.getElementById("YouText").innerHTML = "Gender: " + Gender + "<br>Born in: " + AdminDistrictWard + ", " + AdminDistrictName;
@@ -2482,8 +2546,7 @@
         var Relationship = "Child";
         if (Child1Gender == "Male") {
           Relationship = "Son";
-        }
-        else if (Child1Gender == "Female") {
+        } else if (Child1Gender == "Female") {
           Relationship = "Daughter";
         }
         document.getElementById("Child1Div").innerHTML = "<b>" + Child1Name + "</b><br>" + "Relationship: " + Relationship + "<br>Age: " + (doughnut - Child1Doughnut);
@@ -2495,11 +2558,10 @@
         var Relationship = "Child";
         if (Child2Gender == "Male") {
           Relationship = "Son";
-        }
-        else if (Child2Gender == "Female") {
+        } else if (Child2Gender == "Female") {
           Relationship = "Daughter";
         }
-        document.getElementById("Child2Div").innerHTML = "<b>" + Child2Name + "</b><br>" + "Relationship: " + Relationship  + "<br>Age: " + (doughnut - Child2Doughnut);
+        document.getElementById("Child2Div").innerHTML = "<b>" + Child2Name + "</b><br>" + "Relationship: " + Relationship + "<br>Age: " + (doughnut - Child2Doughnut);
       };
 
       if (howManyChildren >= 3) {
@@ -2508,8 +2570,7 @@
         var Relationship = "Child";
         if (Child3Gender == "Male") {
           Relationship = "Son";
-        }
-        else if (Child3Gender == "Female") {
+        } else if (Child3Gender == "Female") {
           Relationship = "Daughter";
         }
         document.getElementById("Child3Div").innerHTML = "<b>" + Child3Name + "</b><br>" + "Relationship: " + Relationship + "<br>Age: " + (doughnut - Child3Doughnut);
@@ -2532,6 +2593,7 @@
       }
     }
 
+    //Check to see if their age is equal to the MarriageAge, then they are allowed the one time option.
     var MarriageChanceCheck = function() {
       if (Married == false && MarriageAge == doughnut) {
         document.getElementById("PopOutContent").innerHTML = "";
@@ -2541,10 +2603,10 @@
       }
     }
 
+    //Wedding Marriage Function.
     var Wedding = function() {
       drawLine();
       document.getElementById("WeddingLogo").style.visibility = 'visible';
-      //document.getElementById("LineChartDiv").style.display = "block";
       if (Savings > 0) {
         Savings = parseInt(Savings);
         console.log(Savings);
@@ -2581,7 +2643,7 @@
 
       StartLife();
     };
-
+    //Spouse name chosen
     function loadMyCSVSpouse() {
       return d3.csv('Names.csv', function(NameData) {
         SpouseInformation(NameData);
@@ -2596,17 +2658,18 @@
     var SpouseInformation = function(NameData) {
       console.log('Task 6');
       SpouseName = TheNameGame(SpouseGender, SpouseName, NameData);
-      //document.getElementById("SpouseDiv").innerHTML = "<u>" + SpouseName + "</u><br>" + "Relationship: Spouse<br>Gender: " + SpouseGender + "<br>Job: " + SpouseOccupation + "<br>Salary: " + SpouseWage;
+
       document.getElementById("TheContinueButton").style.display = "block";
       document.getElementById("MarriedChoice").style.display = "none";
       StartLife();
     };
 
+    //Giving the spouse a job
     var loadSpouseJobCSV = function() {
       if (SpouseGender == 'Female') {
-        //SpouseJobCSV = "JobChanceFemale.csv";
+
         return d3.csv('JobChanceFemale3.csv', function(SpouseWorkData) {
-          //SpouseWork(SpouseWorkData);
+
           var AgeRangeTest = '';
           if (doughnut <= 21) {
             AgeRangeTest = '18-21';
@@ -2626,9 +2689,9 @@
         });
 
       } else if (SpouseGender == "Male") {
-        //SpouseJobCSV = "JobChance.csv";
+
         return d3.csv('JobChance5.csv', function(SpouseWorkData) {
-          //SpouseWork(SpouseWorkData);
+
           var AgeRangeTest = '';
           if (doughnut <= 21) {
             AgeRangeTest = '18-21';
@@ -2668,8 +2731,8 @@
           SpouseOccupation = index['Occupation'];
           loadMyCSVSpouse();
         } else {
-          console.log('NOOOOOOOOOOOOOO.');
-          //SpouseWork(SpouseWorkData, AgeRangeTest);
+          console.log('');
+
         };
       });
 
@@ -2679,12 +2742,12 @@
 
 
 
-
+    //Spouse Salary Rise with their age too.
     var CheckSpouseSalary = function() {
       var JobCSV = '';
-      if (Gender === "Male") {
+      if (SpouseGender === "Male") {
         JobCSV = "JobChance5.csv";
-      } else if (Gender === "Female") {
+      } else if (SpouseGender === "Female") {
         JobCSV = "JobChanceFemale3.csv";
       }
 
@@ -2773,6 +2836,7 @@
       });
     };
 
+    //Calculate your Spouse's Tax and Income
     var SpouseTaxCalculator = function() {
       var IncomeTaxableWage = parseInt(SpouseWage) - 11000;
 
@@ -2816,10 +2880,6 @@
         spouseMaxPercentagePension = (Remaining / SpouseWage) * 100;
         spouseMaxPercentagePension = 10;
 
-        //Set max value and show pension input form
-        //var input = document.getElementById("PercentagePensionInput");
-        //input.setAttribute("max", spouseMaxPercentagePension);
-        //document.getElementById("PercentagePensionInputForm").style.display = "block";
 
         //Find out how much pension is taken.
         SpouseyearlyPensionContribution = SpouseWage * (spouseMaxPercentagePension / 100)
@@ -2860,13 +2920,7 @@
 
     };
 
-    var MoveArea = function() {
-      console.log(rentFilter);
-      console.log(RentCostData1);
-      var RegionIs = rentFilter[0]['RegionCode'];
-
-    }
-
+    //Function in order to go to the estate agents to rent a different house.
     var VisitEstateAgents = function() {
       document.getElementById('ExpensesTooHigh').style.display = 'none';
       document.getElementById("EstateAgents").style.display = "block";
@@ -2883,6 +2937,7 @@
       LifeChoice();
     }
 
+    //Draws the marriage line graph.
     function drawLine() {
       var margin = {
         top: 10,
@@ -2998,6 +3053,7 @@
       });
     };
 
+    //Function to fill in the after life summary
     var AfterLife = function() {
       document.getElementById('AfterLifeEducationText').appendChild(document.getElementById('ChartAreaDiv'));
       document.getElementById('ChartAreaDiv').style.display = 'block';
@@ -3220,6 +3276,7 @@
         ", with the most deprived areas in the UK have an index of 1 and the least deprived having an index of 10."
     }
 
+    //Gives rent values for the area into a table to compare to Median for the data set.
     var FillInHouseTable = function() {
       var table = document.getElementById("House");
       var row = table.insertRow(2);
@@ -3237,6 +3294,7 @@
       cell6.innerHTML = "£" + Rent4;
     }
 
+    //Draws line graph to compare wages between men and women in the player's job field.
     var DrawLineJobArea = function() {
       var JobGenderCSV = '';
 
