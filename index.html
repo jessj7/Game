@@ -138,11 +138,13 @@
       padding: 7px;
       width: 20%;
     }
-    #AgeRed p{
+
+    #AgeRed p {
       font-size: 0.8em;
       padding-top: 4px;
       margin-bottom: 2px;
     }
+
     #AgeRed2 {
       color: #CC3529;
       font-size: 2em;
@@ -159,9 +161,10 @@
       width: 30%;
       left: 5%;
       font-size: 1.2em;
-      margin-top: 5%;
+      margin-top: 2%;
 
     }
+
     #Left2::after {
       padding-top: 66.4%;
       display: inline-block;
@@ -183,6 +186,7 @@
       padding-left: 25%;
       margin-top: 10%;
     }
+
     #FamilyDiv {
       color: #262626;
       border-style: solid;
@@ -193,12 +197,12 @@
       left: 50%;
       width: 40%;
       display: none;
-      vertical-align:top;
+      vertical-align: top;
     }
 
     #YouDiv {
       background-color: #F4989D;
-      color: 	white;
+      color: white;
       width: 100%;
       border-width: 0px;
       border-radius: 10px;
@@ -258,6 +262,7 @@
       padding: 10px;
       font-size: 1.2em;
     }
+
     #Child2Div {
       color: white;
       width: 100%;
@@ -267,6 +272,7 @@
       padding: 10px;
       font-size: 1.2em;
     }
+
     #Child3Div {
       color: white;
       width: 100%;
@@ -301,6 +307,12 @@
       box-shadow: 2px 2px 3px #AF6F70;
     }
 
+    #FButton:active {
+      -webkit-box-shadow: inset 0px 0px 20px #AF6F70;
+      -moz-box-shadow: inset 0px 0px 20px #AF6F70;
+      box-shadow: inset 0px 0px 20px #AF6F70;
+    }
+
     #MButton {
       background-color: #75D1F6;
       font-size: 2em;
@@ -312,6 +324,12 @@
       padding-bottom: 5px;
       text-align: center;
       box-shadow: 2px 2px 3px #388CA6;
+    }
+
+    #MButton:active {
+      -webkit-box-shadow: inset 0px 0px 20px #388CA6;
+      -moz-box-shadow: inset 0px 0px 20px #388CA6;
+      box-shadow: inset 0px 0px 20px #388CA6;
     }
 
     #SButton {
@@ -328,13 +346,17 @@
       box-shadow: 2px 2px 3px #A56539;
     }
 
+    #SButton:active {
+      -webkit-box-shadow: inset 0px 0px 20px #A56539;
+      -moz-box-shadow: inset 0px 0px 20px #A56539;
+      box-shadow: inset 0px 0px 20px #A56539;
+    }
+
     #SButtonDiv {
       display: inline-block;
     }
 
-    #StartInputs {
-
-    }
+    #StartInputs {}
 
     .black_overlay {
       display: none;
@@ -387,9 +409,11 @@
     #ChartAreaDiv2 svg {
       width: 100%;
     }
+
     #ChartAreaDiv3 svg {
       width: 100%;
     }
+
     #AfterLifeContainer {
       display: none;
       padding-left: 20%;
@@ -448,23 +472,47 @@
     #SchoolLogo {
       visibility: hidden;
     }
-    #UniLogo{
+
+    #UniLogo {
       visibility: hidden;
     }
-    #WorkLogo{
+
+    #WorkLogo {
       visibility: hidden;
     }
-    #KidsLogo{
+
+    #KidsLogo {
       visibility: hidden;
     }
-    #HouseLogo{
+
+    #HouseLogo {
       visibility: hidden;
     }
-    #WeddingLogo{
+
+    #WeddingLogo {
       visibility: hidden;
     }
-    #DeadLogo{
+
+    #DeadLogo {
       visibility: hidden;
+    }
+
+    table {
+      border-collapse: collapse;
+      width: 100%;
+    }
+
+    td {
+      border: 1px solid grey;
+      text-align: left;
+      padding: 8px;
+    }
+
+    th {
+      background-color: grey;
+      color: white;
+      padding: 8px;
+      text-align: center;
     }
   </style>
 </head>
@@ -478,7 +526,7 @@
     <div id='PercentagePensionInputForm'>
       <form>
         Percentage of salary go towards pension:
-        <input id='PercentagePensionInput' type="number" placeholder=3 value=3 name="quantity" min=3 max=100>%
+        <input id='PercentagePensionInput' type="number" placeholder=1 value=1 name="quantity" min=1 max=100>%
       </form>
     </div>
   </div>
@@ -509,13 +557,13 @@
       <h1 style="margin-bottom: 10px;"><span style="font-family: 'Press Start 2P', cursive; font-size: 0.6em;">Stats</span> Life!</h1>
       <p>Choose your gender and location to start you life...</p>
       <div id="StartInputs">
-      <button name="Male" type="button" id="MButton" onclick="ButtonMale();">♂</button>
-      <button name="Female" type="button" id="FButton" onclick="ButtonFemale();">♀</button>
-      <input type="text" placeholder="Enter Postcode" id="postcode" maxlength="13" alt="Enter Postcode">
-    </div>
-    <div id="SButtonDiv">
+        <button name="Male" type="button" id="MButton" onclick="ButtonMale();">♂</button>
+        <button name="Female" type="button" id="FButton" onclick="ButtonFemale();">♀</button>
+        <input type="text" placeholder="Enter Postcode" id="postcode" maxlength="13" alt="Enter Postcode">
+      </div>
+      <div id="SButtonDiv">
         <button name="Start" type="button" id="SButton" onclick="testPostCode();">START LIFE</button>
-    </div>
+      </div>
     </div>
 
 
@@ -626,14 +674,16 @@
   </div>
   <div id="fade" class="black_overlay"></div>
   <div id="AfterLifeContainer">
-    <div id="AfterLifeIntro"><h1>Welcome to the After Life & Game Summary</h1></div>
+    <div id="AfterLifeIntro">
+      <h1>Welcome to the After Life & Game Summary</h1></div>
     <div id="AfterLifeEducation" class="AfterLife_overlay">
       <div id="AfterLifeEducationImg" class="AfterLife_IMG">
-        <img  width="20%" src="school.png">
+        <img width="20%" src="school.png">
       </div>
       <div id="AfterLifeEducationText">
         <h2>Early Education</h2>
-        <p>The education levels accross the country vary a lot from place to place. Even without realising it, when you first step into school the chances of doing well or poorly in school are already thrown based on your location alone. Of course whether you did your homework is your decision - but it still doesn't change the fact that where you live can give you a head start at school, or hold you back.</p>
+        <p>The education levels accross the country vary a lot from place to place. Even without realising it, when you first step into school the chances of doing well or poorly in school are already thrown based on your location alone. Of course whether
+          you did your homework is your decision - but it still doesn't change the fact that where you live can give you a head start at school, or hold you back.</p>
         <h3>Location 6 Months After GCSEs in England & Wales (Figures in %)</h3>
         <div id="ChartAreaDiv3"></div>
         <h3>Location 6 Months After GCSEs in Your Area (Figures in %)</h3>
@@ -641,14 +691,14 @@
     </div>
     <div id="AfterLifeUni" class="AfterLife_overlay">
       <div id="AfterLifeUniImg" class="AfterLife_IMG">
-        <img  width="20%" src="uni.png">
+        <img width="20%" src="uni.png">
       </div>
       <h2>Further Education</h2>
       <div id="AfterLifeUniText"></div>
     </div>
     <div id="AfterLifeWork" class="AfterLife_overlay">
       <div id="AfterLifeWorkImg" class="AfterLife_IMG">
-        <img  width="20%" src="work.png">
+        <img width="20%" src="work.png">
       </div>
       <h2>Your Working Life</h2>
       <div id="AfterLifeWorkTextArea"></div>
@@ -661,7 +711,26 @@
         <img width="20%" src="house.png">
       </div>
       <h2>Housing</h2>
-      <div id="AfterLifeHouseText"></div>
+      <div id="AfterLifeHouseText">How do the yearly rental prices in your area compare to the Median for Wales and England?</div>
+      <table id="House">
+        <tr>
+          <th>Location</th>
+          <th>Shared Bedroom</th>
+          <th>One Bedroom</th>
+          <th>Two Bedroom</th>
+          <th>Three Bedroom</th>
+          <th>Four Bedroom</th>
+        </tr>
+        <tr>
+          <td>England & Wales</td>
+          <td>£4416</td>
+          <td>£5700</td>
+          <td>£7140</td>
+          <td>£8670</td>
+          <td>£11940</td>
+        </tr>
+      </table>
+
     </div>
     <div id="AfterLifeDeath" class="AfterLife_overlay">
       <div id="AfterLifeDeathImg" class="AfterLife_IMG">
@@ -672,7 +741,8 @@
     </div>
     <div id="GameOver" class="AfterLife_overlay">
       <h1 style="font-family: 'Press Start 2P', cursive; font-size: 2em; color: #CC3529;">GAME OVER</h1>
-      <p>Thank you for playing through Stats Life! Hopefully it has given you something to think about how our own geographical location can tips the odds against or for us in life.<br><br>This project was built on open data mostly from the ONS website from datasets based around 2015. From births, to marriages to death, every step that wasn't in your control was based on chance from real life data.</p>
+      <p>Thank you for playing through Stats Life! Hopefully it has given you something to think about how our own geographical location can tips the odds against or for us in life.<br><br>This project was built on open data mostly from the ONS website from
+        datasets based around 2015. From births, to marriages to death, every step that wasn't in your control was based on chance from real life data.</p>
     </div>
   </div>
   <div id="ProgressBar">
@@ -707,7 +777,7 @@
     var Savings = 0;
     var Remaining = 0;
     var WentToUniversity = false;
-    var StudentLoanTotal = 44500;
+    var StudentLoanTotal = 40000;
     var StudentLoanFinished = false;
     var EducationWidth = 0;
     var Country = '';
@@ -805,14 +875,14 @@
     var SpouseJobCSV = '';
     var InformationDisplay = false;
 
-    var ButtonMale = function(){
+    var ButtonMale = function() {
       Gender = 'Male';
       document.getElementById("YouDiv").style.backgroundColor = "#75D1F6";
       document.getElementById("YouDiv").style.boxShadow = "2px 2px 3px #388CA6";
       document.getElementById("YouImg").src = "man.png";
     };
 
-    var ButtonFemale = function(){
+    var ButtonFemale = function() {
       Gender = 'Female';
       document.getElementById("YouDiv").style.backgroundColor = "#F4989D";
       document.getElementById("YouDiv").style.boxShadow = "2px 2px 3px #AF6F70";
@@ -830,7 +900,7 @@
         Work();
         PopOutWait = false;
       }
-      if (PopOutWait2 === true){
+      if (PopOutWait2 === true) {
         PassUni();
         PopOutWait2 = false;
       };
@@ -1253,11 +1323,11 @@
               }
               Remaining = HouseholdIncome - (Rent + Expenses);
 
-              if (Rent>0){
+              if (Rent > 0) {
                 document.getElementById("HouseLogo").style.visibility = 'visible';
               }
 
-              if (Rent==0){
+              if (Rent == 0) {
                 document.getElementById("HouseLogo").style.visibility = 'hidden';
               }
               parseInt(Remaining);
@@ -1712,8 +1782,9 @@
         TopThirdHEI = filteredData[0]['TopThirdHEI'];
         OtherHE = filteredData[0]['OtherHE'];
         var WalesUniExplainer = '';
-        if (Country == 'Wales'){
-          WalesUniExplainer = '<br><br>NOTE: Figures for Welsh University are only intended for use in the game as they are basic estimates based on how many people in the areas go to university. This is because the data of where they go to university is not published in Wales as it is in England.'
+        if (Country == 'Wales') {
+          WalesUniExplainer =
+            '<br><br>NOTE: Figures for Welsh University are only intended for use in the game as they are basic estimates based on how many people in the areas go to university. This is because the data of where they go to university is not published in Wales as it is in England.'
         }
         //Education3 changed to PopOutContent
         if (Oxbridge >= chance) {
@@ -1790,7 +1861,9 @@
         if (Math.round(filteredData[0]['Difference']) > 0) {
           document.getElementById("TheContinueButton").style.display = "block";
           document.getElementById("WorkLogo").style.visibility = 'visible';
-          document.getElementById("PopOutContent").innerHTML = "Your salary is £" + numberComma(Salary) + " a year, and will increase each year based on the average salary for your age and job. <br>There is a +" + Math.round(filteredData[0]['Difference']) + "% difference in wage between " + LA + " and average for England and Wales.";
+          document.getElementById("PopOutContent").innerHTML = "Your salary is £" + numberComma(Salary) + " a year, and will increase each year based on the average salary for your age and job. <br>There is a +" + Math.round(filteredData[0][
+            'Difference'
+          ]) + "% difference in wage between " + LA + " and average for England and Wales.";
           LifeEvent();
         } else {
           document.getElementById("TheContinueButton").style.display = "block";
@@ -1939,8 +2012,7 @@
       for (i = 0; i < select.length; i++) {
         if (select.options[i].value > (HouseholdIncome2 - Expenses)) {
           select.options[i].style.color = "#ff6961";
-        }
-        else {
+        } else {
           select.options[i].style.color = "#66cc66";
         };
       };
@@ -2029,19 +2101,19 @@
         var BandH = councilTaxFilter[0]['H '];
 
         if (Rent = Rent0) {
-          CouncilTax = BandC / 3;
+          CouncilTax = BandE / 3;
         }
         if (Rent = Rent1) {
-          CouncilTax = BandA;
-        }
-        if (Rent = Rent2) {
           CouncilTax = BandB;
         }
-        if (Rent = Rent3) {
+        if (Rent = Rent2) {
           CouncilTax = BandC;
         }
-        if (Rent = Rent4) {
+        if (Rent = Rent3) {
           CouncilTax = BandE;
+        }
+        if (Rent = Rent4) {
+          CouncilTax = BandG;
         }
 
       });
@@ -2093,7 +2165,7 @@
     var CheckExpenditure = function() {
 
       console.log('Family Size: ' + FamilySize)
-      //Find which economic quintile band in based on wage and familysize
+      //Find which economic quintile band in based on household income and familysize
       d3.csv("Wages1.csv", function(SalaryData) {
         var salaryFilter = SalaryData.filter(function(d) {
           return (d.FamilySize == FamilySize)
@@ -2113,6 +2185,7 @@
         console.log('Quintile Band: ' + QuintileBand);
         console.log(salaryFilter);
       })
+      //Used to find out for each salary income what percentage was that of total income - not sure if the data could be used in this way actually.
       /*
       d3.csv("IncomePercentage.csv", function(IncomePercentageData) {
         var IncomePercentageFilter = IncomePercentageData.filter(function(d) {
@@ -2199,7 +2272,7 @@
     };
 
     var PensionFunds = function() {
-      //Okay we need to find the max percentage that they can spend. Lets go.
+      //Okay we need to find the max percentage that they can spend.
       if (Remaining > 0) {
         //Find the max percentage someone can pay on pension.
         maxPercentagePension = (Remaining / Salary) * 100;
@@ -2213,10 +2286,11 @@
         //Find out how much pension is taken.
         YearlyPensionContribution = Salary * ((document.getElementById('PercentagePensionInput').value) / 100)
         console.log('Yearly Pension Contribution:' + YearlyPensionContribution);
-        PensionPot = PensionPot + (YearlyPensionContribution * 2);
+        //Salary * 0.01 defines the 1% employers have to contribute to your pension
+        PensionPot = PensionPot + YearlyPensionContribution + (Salary * 0.01);
         PensionPot = Math.round(PensionPot);
       } else if (Remaining < 0) {
-        document.getElementById('PercentagePensionInput').value = 3;
+        document.getElementById('PercentagePensionInput').value = 1;
       }
 
       var ExpRent = parseInt(Expenses) + parseInt(Rent);
@@ -2405,33 +2479,56 @@
       if (howManyChildren >= 1) {
         document.getElementById("Child1Div").style.backgroundColor = "#F5D662";
         document.getElementById("Child1Div").style.boxShadow = "2px 2px 3px #857435";
-        document.getElementById("Child1Div").innerHTML = "<b>" + Child1Name + "</b><br>" + "Relationship: Child <br>Gender: " + Child1Gender + "<br>Age: " + (doughnut - Child1Doughnut);
+        var Relationship = "Child";
+        if (Child1Gender == "Male") {
+          Relationship = "Son";
+        }
+        else if (Child1Gender == "Female") {
+          Relationship = "Daughter";
+        }
+        document.getElementById("Child1Div").innerHTML = "<b>" + Child1Name + "</b><br>" + "Relationship: " + Relationship + "<br>Age: " + (doughnut - Child1Doughnut);
       };
 
       if (howManyChildren >= 2) {
         document.getElementById("Child2Div").style.backgroundColor = "#F5D662";
         document.getElementById("Child2Div").style.boxShadow = "2px 2px 3px #857435";
-        document.getElementById("Child2Div").innerHTML = "<b>" + Child2Name + "</b><br>" + "Relationship: Child <br>Gender: " + Child2Gender + "<br>Age: " + (doughnut - Child2Doughnut);
+        var Relationship = "Child";
+        if (Child2Gender == "Male") {
+          Relationship = "Son";
+        }
+        else if (Child2Gender == "Female") {
+          Relationship = "Daughter";
+        }
+        document.getElementById("Child2Div").innerHTML = "<b>" + Child2Name + "</b><br>" + "Relationship: " + Relationship  + "<br>Age: " + (doughnut - Child2Doughnut);
       };
 
       if (howManyChildren >= 3) {
         document.getElementById("Child3Div").style.backgroundColor = "#F5D662";
         document.getElementById("Child3Div").style.boxShadow = "2px 2px 3px #857435";
-        document.getElementById("Child3Div").innerHTML = "<b>" + Child3Name + "</b><br>" + "Relationship: Child <br>Gender: " + Child3Gender + "<br>Age: " + (doughnut - Child3Doughnut);
+        var Relationship = "Child";
+        if (Child3Gender == "Male") {
+          Relationship = "Son";
+        }
+        else if (Child3Gender == "Female") {
+          Relationship = "Daughter";
+        }
+        document.getElementById("Child3Div").innerHTML = "<b>" + Child3Name + "</b><br>" + "Relationship: " + Relationship + "<br>Age: " + (doughnut - Child3Doughnut);
       };
 
       if (Married == true) {
-        document.getElementById("SpouseText").innerHTML = "<b>" + SpouseName + "</b><br>" + "Relationship: Spouse<br>Gender: " + SpouseGender + "<br>Job: " + SpouseOccupation + "<br>Salary: £" + numberComma(SpouseWage);
-        if (SpouseGender == 'Female'){
+        var Relationship = "Spouse";
+        if (SpouseGender == 'Female') {
           document.getElementById("SpouseDiv").style.backgroundColor = "#F4989D";
           document.getElementById("SpouseDiv").style.boxShadow = "2px 2px 3px #AF6F70";
           document.getElementById("SpouseImg").src = "girl.png";
-        }
-        else if (SpouseGender == 'Male'){
+          var Relationship = "Wife";
+        } else if (SpouseGender == 'Male') {
           document.getElementById("SpouseDiv").style.backgroundColor = "#75D1F6";
           document.getElementById("SpouseDiv").style.boxShadow = "2px 2px 3px #388CA6";
           document.getElementById("SpouseImg").src = "man.png";
+          var Relationship = "Husband";
         }
+        document.getElementById("SpouseText").innerHTML = "<b>" + SpouseName + "</b><br>" + "Relationship: " + Relationship + "<br>Job: " + SpouseOccupation + "<br>Salary: £" + numberComma(SpouseWage);
       }
     }
 
@@ -2901,7 +2998,7 @@
       });
     };
 
-    var AfterLife = function(){
+    var AfterLife = function() {
       document.getElementById('AfterLifeEducationText').appendChild(document.getElementById('ChartAreaDiv'));
       document.getElementById('ChartAreaDiv').style.display = 'block';
 
@@ -3080,75 +3177,98 @@
         .style("color", "grey")
         .html("Employment or training");
 
-    //Here we look at the University Box and what needs  to go into there.
-    var WalesUniExplainer = '';
-    console.log('Hey');
-    if (Country == 'Wales'){
-      WalesUniExplainer = '<br><br>NOTE: Figures for Welsh University are only intended for use in the game as they are basic estimates based on how many people in the areas go to university. This is because the data of where they go to university is not published in Wales as it is in England.'
-    }
+      //Here we look at the University Box and what needs  to go into there.
+      var WalesUniExplainer = '';
+      console.log('Hey');
+      if (Country == 'Wales') {
+        WalesUniExplainer =
+          '<br><br>NOTE: Figures for Welsh University are only intended for use in the game as they are basic estimates based on how many people in the areas go to university. This is because the data of where they go to university is not published in Wales as it is in England.'
+      }
 
-    if (UniPoints == 3) {
-      document.getElementById("AfterLifeUniText").innerHTML = "You went to Oxford or Cambridge University!" + "In your area " + Oxbridge + "% of KS5 leavers got into university in Oxford or Cambridge, while " +
-        TopThirdHEI + "% in your area went to a university in the top third of university rankings, 25% did overall in England. In your area there were " + OtherHE + "% who went to other higher education institutes, while 34% did overall in England." + WalesUniExplainer;
+      if (UniPoints == 3) {
+        document.getElementById("AfterLifeUniText").innerHTML = "You went to Oxford or Cambridge University!" + "In your area " + Oxbridge + "% of KS5 leavers got into university in Oxford or Cambridge, while " +
+          TopThirdHEI + "% in your area went to a university in the top third of university rankings, 25% did overall in England. In your area there were " + OtherHE +
+          "% who went to other higher education institutes, while 34% did overall in England." + WalesUniExplainer;
         console.log('Hey');
-    } else if (UniPoints == 2) {
-      document.getElementById("AfterLifeUniText").innerHTML = "You went to a university ranked in the top third! " + "In your area " + Oxbridge + "% of KS5 leavers got into university in Oxford or Cambridge, while " +
-        TopThirdHEI + "% in your area went to a university in the top third of university rankings, 25% did overall in England. In your area there were " + OtherHE + "% who went to other higher education institutes, while 34% did overall in England." + WalesUniExplainer;
+      } else if (UniPoints == 2) {
+        document.getElementById("AfterLifeUniText").innerHTML = "You went to a university ranked in the top third! " + "In your area " + Oxbridge + "% of KS5 leavers got into university in Oxford or Cambridge, while " +
+          TopThirdHEI + "% in your area went to a university in the top third of university rankings, 25% did overall in England. In your area there were " + OtherHE +
+          "% who went to other higher education institutes, while 34% did overall in England." + WalesUniExplainer;
         console.log('Hey');
 
-    } else if (UniPoints == 1) {
-      document.getElementById("AfterLifeUniText").innerHTML = "You went to a univeristy that wasn't ranked in the top third." + "In your area " + Oxbridge + "% of KS5 leavers got into university in Oxford or Cambridge, while " +
-        TopThirdHEI + "% in your area went to a university in the top third of university rankings, 25% did overall in England. In your area there were " + OtherHE + "% who went to other higher education institutes, while 34% did overall in England." + WalesUniExplainer;
+      } else if (UniPoints == 1) {
+        document.getElementById("AfterLifeUniText").innerHTML = "You went to a univeristy that wasn't ranked in the top third." + "In your area " + Oxbridge + "% of KS5 leavers got into university in Oxford or Cambridge, while " +
+          TopThirdHEI + "% in your area went to a university in the top third of university rankings, 25% did overall in England. In your area there were " + OtherHE +
+          "% who went to other higher education institutes, while 34% did overall in England." + WalesUniExplainer;
         console.log('Hey');
-    }
-    else {
-      document.getElementById("AfterLifeUniText").innerHTML = "You didn't go onto University. In your area " + Oxbridge + "% of KS5 leavers got into university in Oxford or Cambridge, while " +
-        TopThirdHEI + "% in your area went to a university in the top third of university rankings, 25% did overall in England. In your area there were " + OtherHE + "% who went to other higher education institutes, while 34% did overall in England." + WalesUniExplainer;
+      } else {
+        document.getElementById("AfterLifeUniText").innerHTML = "You didn't go onto University. In your area " + Oxbridge + "% of KS5 leavers got into university in Oxford or Cambridge, while " +
+          TopThirdHEI + "% in your area went to a university in the top third of university rankings, 25% did overall in England. In your area there were " + OtherHE +
+          "% who went to other higher education institutes, while 34% did overall in England." + WalesUniExplainer;
         console.log('Hey');
       };
 
 
-    //Now Lets Look at the Summary for Work
+      //Now Lets Look at the Summary for Work
 
-    document.getElementById("AfterLifeWorkTextArea").innerHTML = "Throughout your working career there was a " + WageDifference + "% difference between your wages working in " + LA + " and the rest of England and Wales."
+      document.getElementById("AfterLifeWorkTextArea").innerHTML = "Throughout your working career there was a " + WageDifference + "% difference between your wages working in " + LA + " and the rest of England and Wales."
 
-    DrawLineJobArea();
+      DrawLineJobArea();
+      FillInHouseTable();
 
-    document.getElementById("AfterLifeDeathText").innerHTML = "Your chance of death at a certain age by a certain cause is determined by two things. First being " + Gender + " and the multiple depravation index of your area which is " + IMD + ", with the most deprived areas in the UK have an index of 1 and the least deprived having an index of 10."
+      document.getElementById("AfterLifeDeathText").innerHTML = "Your chance of death at a certain age by a certain cause is determined by two things. First being " + Gender + " and the multiple depravation index of your area which is " + IMD +
+        ", with the most deprived areas in the UK have an index of 1 and the least deprived having an index of 10."
     }
 
-    var DrawLineJobArea = function(){
+    var FillInHouseTable = function() {
+      var table = document.getElementById("House");
+      var row = table.insertRow(2);
+      var cell1 = row.insertCell(0);
+      var cell2 = row.insertCell(1);
+      var cell3 = row.insertCell(2);
+      var cell4 = row.insertCell(3);
+      var cell5 = row.insertCell(4);
+      var cell6 = row.insertCell(5);
+      cell1.innerHTML = LA;
+      cell2.innerHTML = "£" + Rent0;
+      cell3.innerHTML = "£" + Rent1;
+      cell4.innerHTML = "£" + Rent2;
+      cell5.innerHTML = "£" + Rent3;
+      cell6.innerHTML = "£" + Rent4;
+    }
+
+    var DrawLineJobArea = function() {
       var JobGenderCSV = '';
 
-      if (Job == 'Administrative and secretarial'){
+      if (Job == 'Administrative and secretarial') {
         JobGenderCSV = 'CompareAdminAndSecretorial.csv'
       }
 
-      if (Job == 'Associate professional and technical'){
+      if (Job == 'Associate professional and technical') {
         JobGenderCSV = 'CompareAssociateProfessionalAndTechnical.csv'
       }
 
-      if (Job == 'Caring, leisure and other services'){
+      if (Job == 'Caring, leisure and other services') {
         JobGenderCSV = 'CompareCaringLeisure.csv'
       }
 
-      if (Job == 'Managers, directors and senior officials'){
+      if (Job == 'Managers, directors and senior officials') {
         JobGenderCSV = 'CompareManagersDirectors.csv'
       }
 
-      if (Job == 'Process, plant and machine operatives'){
+      if (Job == 'Process, plant and machine operatives') {
         JobGenderCSV = 'CompareProcessPlantMachine.csv'
       }
 
-      if (Job == 'Professional jobs'){
+      if (Job == 'Professional jobs') {
         JobGenderCSV = 'CompareProfessionalJobs.csv'
       }
 
-      if (Job == 'Sales and customer service'){
+      if (Job == 'Sales and customer service') {
         JobGenderCSV = 'CompareSales.csv'
       }
 
-      if (Job == 'Service, Administration and Trades'){
+      if (Job == 'Service, Administration and Trades') {
         JobGenderCSV = 'CompareService.csv'
       }
 
