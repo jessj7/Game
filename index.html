@@ -209,6 +209,7 @@
       border-radius: 10px;
       margin-bottom: 5px;
       padding: 10px;
+      box-shadow: 2px 2px 3px #AF6F70;
     }
 
 
@@ -345,6 +346,26 @@
       padding: 15px 15px;
       text-align: center;
       box-shadow: 2px 2px 3px #A56539;
+    }
+
+    #RButton {
+      background-color: #F78E55;
+      font-family: 'Permanent Marker', cursive;
+      color: white;
+      border: none;
+      font-size: 2em;
+      text-align: center;
+      border-radius: 15px;
+      width: 100%;
+      padding: 15px 15px;
+      text-align: center;
+      box-shadow: 2px 2px 3px #A56539;
+    }
+
+    #RButton:active {
+      -webkit-box-shadow: inset 0px 0px 20px #A56539;
+      -moz-box-shadow: inset 0px 0px 20px #A56539;
+      box-shadow: inset 0px 0px 20px #A56539;
     }
 
     #SButton:active {
@@ -537,7 +558,7 @@
       <div id='AgeRed2'>11</div>
     </div>
     <div id='YouDiv'>
-      <img id='YouImg' src=''>
+      <img id='YouImg' src='girl.png'>
       <div id='YouText'></div>
     </div>
     <div id='SpouseDiv'>
@@ -743,7 +764,8 @@
     <div id="GameOver" class="AfterLife_overlay">
       <h1 style="font-family: 'Press Start 2P', cursive; font-size: 2em; color: #CC3529;">GAME OVER</h1>
       <p>Thank you for playing through Stats Life! Hopefully it has given you something to think about how our own geographical location can tips the odds against or for us in life.<br><br>This project was built on open data mostly from the ONS website from
-        datasets based around 2015. From births, to marriages to death, every step that wasn't in your control was based on chance from real life data.</p>
+        datasets based around 2015. From births, to marriages to death, every step that wasn't in your control was based on chance from real life data.</p><br>
+      <button name="Restart" type="button" id="RButton" onclick="window.location.reload()">RESTART</button>
     </div>
   </div>
   <div id="ProgressBar">
